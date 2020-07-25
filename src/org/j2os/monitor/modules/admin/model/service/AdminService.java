@@ -21,6 +21,7 @@ public class AdminService implements ServiceInterface<Admin> {
     }
 
     @Override
+    @Transactional
     public void add(Admin admin) {
         this.adminRepository.save(admin);
     }
@@ -55,6 +56,7 @@ public class AdminService implements ServiceInterface<Admin> {
     }
 
     @Override
+    @Transactional
     public void delete(Admin admin) {
         this.adminRepository.delete(admin);
     }
