@@ -3,7 +3,7 @@ package org.j2os.monitor.modules.device.model.entity;
 import javax.persistence.*;
 import java.util.List;
 
-@Table
+@Table(name="device_model")
 @Entity
 public class DeviceModel {
     @Id
@@ -18,7 +18,7 @@ public class DeviceModel {
     @JoinColumn(name = "device_id")
     private Device device;
 
-    @OneToMany(mappedBy = "deviceGroup")
+    @OneToMany(mappedBy = "deviceModel")
     private List<DeviceGroup> deviceGroups;
 
     @Column(columnDefinition = "number")

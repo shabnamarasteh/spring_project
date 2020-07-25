@@ -1,7 +1,10 @@
 package org.j2os.monitor.modules.common.model.entity;
 
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 
+@Component
 public class ValidateObject {
     private List data;
     private String result;

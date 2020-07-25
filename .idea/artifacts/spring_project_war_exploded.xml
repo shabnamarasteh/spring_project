@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="spring_project:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/spring_project_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="spring_project" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="application" name="lib" />
+          <element id="library" level="project" name="lib1" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="spring_project/web/Web2" />
+      <element id="javaee-facet-resources" facet="spring_project/web/Web" />
+    </root>
+  </artifact>
+</component>

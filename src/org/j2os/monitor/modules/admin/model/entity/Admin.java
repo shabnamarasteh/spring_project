@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table
+@Table(name="admin")
 public class Admin {
     @Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="admin_seq")
@@ -30,7 +30,7 @@ public class Admin {
     private LocalDateTime updatedAt;
 
     @ManyToOne
-    @JoinColumn(name = "role_id")
+    @JoinColumn(name="role_id")
     private Role role_id;
 
     public Admin() {

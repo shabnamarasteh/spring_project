@@ -5,7 +5,7 @@ package org.j2os.monitor.modules.device.model.entity;
 import javax.persistence.*;
 import java.util.List;
 
-@Table
+@Table(name = "device_group")
 @Entity
 public class DeviceGroup {
     @Id
@@ -17,7 +17,8 @@ public class DeviceGroup {
     private String name;
 
 //    @JsonIgnore
-    @ManyToOne
+    @ManyToOne()
+    @JoinColumn(name="device_model")
     private DeviceModel deviceModel;
 
     public DeviceGroup() {

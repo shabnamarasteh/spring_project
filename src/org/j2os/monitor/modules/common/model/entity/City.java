@@ -3,7 +3,7 @@ package org.j2os.monitor.modules.common.model.entity;
 import javax.persistence.*;
 
 @Entity
-@Table
+@Table(name="city")
 public class City {
     @Id
     @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="city_seq")

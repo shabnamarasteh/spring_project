@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table
+@Table(name = "role")
 public class Role {
     @Id
     @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="role_seq")
