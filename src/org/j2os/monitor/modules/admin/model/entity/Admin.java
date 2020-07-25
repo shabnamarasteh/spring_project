@@ -1,7 +1,9 @@
 package org.j2os.monitor.modules.admin.model.entity;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @Table(name="admin")
@@ -32,6 +34,16 @@ public class Admin {
     @ManyToOne
     @JoinColumn(name="role_id")
     private Role role_id;
+
+    @PrePersist
+    protected void onCreatedAt() {
+        createdAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdatedAt() {
+        updatedAt = LocalDateTime.now();
+    }
 
     public Admin() {
     }
