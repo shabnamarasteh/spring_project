@@ -11,7 +11,7 @@ public class AlarmNote {
     @Id
     @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="alarmnote_seq")
     @SequenceGenerator(name="alarmnote_seq", sequenceName="alarmnote_seq", allocationSize=1)
-    private long id;
+    private long alarmNoteId;
 
     @ManyToOne
     @JoinColumn(name = "Device_Property_id")
@@ -32,12 +32,12 @@ public class AlarmNote {
         this.alarmLogList = alarmLogList;
     }
 
-    public long getId() {
-        return id;
+    public long getAlarmNoteId() {
+        return alarmNoteId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setAlarmNoteId(long alarmNoteId) {
+        this.alarmNoteId = alarmNoteId;
     }
 
     public DeviceProperty getDeviceProperty() {

@@ -10,7 +10,7 @@ public class AlarmLog {
     @Id
     @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="alarmlog_seq")
     @SequenceGenerator(name="alarmlog_seq", sequenceName="alarmlog_seq", allocationSize=1)
-    private long id;
+    private long alarmLogId;
 
     @ManyToOne
     @JoinColumn(name = "alarm_note_id")
@@ -19,6 +19,7 @@ public class AlarmLog {
     private String message;
 
     @ManyToOne
+    @JoinColumn(name = "admin_id")
     private Admin admin;
 
     public AlarmLog() {
@@ -30,12 +31,20 @@ public class AlarmLog {
         this.admin = admin;
     }
 
-    public long getId() {
-        return id;
+    public long getAlarmLogId() {
+        return alarmLogId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setAlarmLogId(long alarmLogId) {
+        this.alarmLogId = alarmLogId;
+    }
+
+    public Admin getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
     }
 
     public AlarmNote getAlarm_note_id() {
