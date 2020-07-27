@@ -5,11 +5,13 @@ import org.j2os.monitor.modules.admin.model.repository.AdminActivityRepository;
 import org.j2os.monitor.modules.utils.Interfaces.service.ServiceInterface;
 import org.j2os.monitor.modules.utils.MyBeanCopy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
+@Service
 public class AdminActivityService implements ServiceInterface<AdminActivity> {
     private AdminActivityRepository adminActivityRepository;
 
