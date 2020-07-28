@@ -13,12 +13,12 @@ public class DeviceGroup {
     @SequenceGenerator(name="device_model_seq", sequenceName="device_model_seq", allocationSize=1)
     private long id;
 
-    @Column(columnDefinition = "varchar2(200)")
+    @Column(name = "name", columnDefinition = "varchar2(200)")
     private String name;
 
 //    @JsonIgnore
     @ManyToOne()
-    @JoinColumn(name="device_model")
+    @JoinColumn(name="device_model_id")
     private DeviceModel deviceModel;
 
     public DeviceGroup() {

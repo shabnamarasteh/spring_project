@@ -1,8 +1,8 @@
 package org.j2os.monitor.modules.device.controller.validate;
 
 import org.j2os.monitor.modules.common.model.entity.ValidateObject;
-import org.j2os.monitor.modules.device.model.entity.Datacenter;
-import org.j2os.monitor.modules.device.model.service.DatacenterService;
+import org.j2os.monitor.modules.device.model.entity.Rack;
+import org.j2os.monitor.modules.device.model.service.RackService;
 import org.j2os.monitor.modules.utils.Interfaces.validate.ValidateInterface;
 import org.j2os.monitor.modules.utils.annotation.ValidationAnnotation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,29 +11,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 @ValidationAnnotation
-public class DatacenterValidate implements ValidateInterface<Datacenter> {
-    private DatacenterService datacenterService;
+public class RackValidate  implements ValidateInterface<Rack> {
+    private RackService rackService;
 
     @Autowired
-    public DatacenterValidate(DatacenterService datacenterService) {
-        this.datacenterService = datacenterService;
+    public RackValidate(RackService rackService) {
+        this.rackService = rackService;
     }
 
     @Override
-    public ValidateObject addValidate(Datacenter datacenter) {
+    public ValidateObject addValidate(Rack rack) {
         ValidateObject validateObject = new ValidateObject();
         List<String> errorList = new ArrayList<>();
-        if(datacenter == null){
+        if(rack == null){
             errorList.add("Object is null");
         }else{
-            if(datacenter.getName() == null || datacenter.getName().isEmpty()){
+            if(rack.getName() == null || rack.getName().isEmpty()){
                 errorList.add("Name is required");
             }
-            if(datacenter.getCityId() == null || datacenter.getCityId().getId() == 0){
-                errorList.add("City is required");
+            if(rack.getMax_unit() == 0 ){
+                errorList.add("MaxUnit is required");
             }
-            if(datacenter.getLocation() == null || datacenter.getLocation().isEmpty()){
-                errorList.add("Location is required");
+            if(rack.getDatacenterId() == null || rack.getDatacenterId().getId() == 0){
+                errorList.add("DataCenter is required");
             }
         }
         validateObject.setFaultmessage(errorList);
@@ -46,23 +46,23 @@ public class DatacenterValidate implements ValidateInterface<Datacenter> {
     }
 
     @Override
-    public ValidateObject updateValidate(Datacenter datacenter) {
+    public ValidateObject updateValidate(Rack rack) {
         ValidateObject validateObject = new ValidateObject();
         List<String> errorList = new ArrayList<>();
-        if(datacenter == null || datacenter.getId() == 0){
+        if(rack == null || rack.getId() == 0){
             errorList.add("Object is null");
         }else{
-            if(!this.datacenterService.existsById(datacenter.getId())){
-                errorList.add("DataCenter not defined");
+            if(!this.rackService.existsById(rack.getId())){
+                errorList.add("Rack not defined");
             }else{
-                if(datacenter.getName() != null && datacenter.getName().isEmpty()){
+                if(rack.getName() != null || rack.getName().isEmpty()){
                     errorList.add("Name is required");
                 }
-                if(datacenter.getCityId() != null && datacenter.getCityId().getId() == 0){
-                    errorList.add("City is required");
+                if(rack.getMax_unit() == 0 ){
+                    errorList.add("MaxUnit is required");
                 }
-                if(datacenter.getLocation() != null && datacenter.getLocation().isEmpty()){
-                    errorList.add("Location is required");
+                if(rack.getDatacenterId() == null || rack.getDatacenterId().getId() == 0){
+                    errorList.add("DataCenter is required");
                 }
             }
         }
@@ -90,14 +90,14 @@ public class DatacenterValidate implements ValidateInterface<Datacenter> {
     }
 
     @Override
-    public ValidateObject deleteValidate(Datacenter datacenter) {
+    public ValidateObject deleteValidate(Rack rack) {
         ValidateObject validateObject = new ValidateObject();
         List<String> errorList = new ArrayList<>();
-        if(datacenter == null){
+        if(rack == null){
             errorList.add("Object is null");
         }else{
-            if(!this.datacenterService.existsById(datacenter.getId())){
-                errorList.add("DataCenter not defined");
+            if(!this.rackService.existsById(rack.getId())){
+                errorList.add("Rack not defined");
             }
         }
         validateObject.setFaultmessage(errorList);
@@ -110,14 +110,14 @@ public class DatacenterValidate implements ValidateInterface<Datacenter> {
     }
 
     @Override
-    public ValidateObject findOneValidate(Datacenter datacenter) {
+    public ValidateObject findOneValidate(Rack rack) {
         ValidateObject validateObject = new ValidateObject();
         List<String> errorList = new ArrayList<>();
-        if(datacenter == null){
+        if(rack == null){
             errorList.add("Object is null");
         }else{
-            if(!this.datacenterService.existsById(datacenter.getId())){
-                errorList.add("Device not defined");
+            if(!this.rackService.existsById(rack.getId())){
+                errorList.add("Rack Model not defined");
             }
         }
         validateObject.setFaultmessage(errorList);
@@ -133,8 +133,8 @@ public class DatacenterValidate implements ValidateInterface<Datacenter> {
     public ValidateObject findByIdValidate(long id) {
         ValidateObject validateObject = new ValidateObject();
         List<String> errorList = new ArrayList<>();
-        if(!this.datacenterService.existsById(id)){
-            errorList.add("Device not defined");
+        if(!this.rackService.existsById(id)){
+            errorList.add("Rack not defined");
         }
         validateObject.setFaultmessage(errorList);
         if(errorList.size() >0){

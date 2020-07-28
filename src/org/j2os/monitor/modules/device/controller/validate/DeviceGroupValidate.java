@@ -1,8 +1,8 @@
 package org.j2os.monitor.modules.device.controller.validate;
 
 import org.j2os.monitor.modules.common.model.entity.ValidateObject;
-import org.j2os.monitor.modules.device.model.entity.Datacenter;
-import org.j2os.monitor.modules.device.model.service.DatacenterService;
+import org.j2os.monitor.modules.device.model.entity.DeviceGroup;
+import org.j2os.monitor.modules.device.model.service.DeviceGroupService;
 import org.j2os.monitor.modules.utils.Interfaces.validate.ValidateInterface;
 import org.j2os.monitor.modules.utils.annotation.ValidationAnnotation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,29 +11,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 @ValidationAnnotation
-public class DatacenterValidate implements ValidateInterface<Datacenter> {
-    private DatacenterService datacenterService;
+public class DeviceGroupValidate implements ValidateInterface<DeviceGroup> {
+    private DeviceGroupService deviceGroupService;
 
     @Autowired
-    public DatacenterValidate(DatacenterService datacenterService) {
-        this.datacenterService = datacenterService;
+    public DeviceGroupValidate(DeviceGroupService deviceGroupService) {
+        this.deviceGroupService = deviceGroupService;
     }
 
     @Override
-    public ValidateObject addValidate(Datacenter datacenter) {
+    public ValidateObject addValidate(DeviceGroup deviceGroup) {
         ValidateObject validateObject = new ValidateObject();
         List<String> errorList = new ArrayList<>();
-        if(datacenter == null){
+        if(deviceGroup == null){
             errorList.add("Object is null");
         }else{
-            if(datacenter.getName() == null || datacenter.getName().isEmpty()){
+            if(deviceGroup.getName() == null || deviceGroup.getName().isEmpty()){
                 errorList.add("Name is required");
             }
-            if(datacenter.getCityId() == null || datacenter.getCityId().getId() == 0){
-                errorList.add("City is required");
-            }
-            if(datacenter.getLocation() == null || datacenter.getLocation().isEmpty()){
-                errorList.add("Location is required");
+            if(deviceGroup.getDeviceModel() == null || deviceGroup.getDeviceModel().getId() == 0){
+                errorList.add("Device Model is required");
             }
         }
         validateObject.setFaultmessage(errorList);
@@ -46,23 +43,20 @@ public class DatacenterValidate implements ValidateInterface<Datacenter> {
     }
 
     @Override
-    public ValidateObject updateValidate(Datacenter datacenter) {
+    public ValidateObject updateValidate(DeviceGroup deviceGroup) {
         ValidateObject validateObject = new ValidateObject();
         List<String> errorList = new ArrayList<>();
-        if(datacenter == null || datacenter.getId() == 0){
+        if(deviceGroup == null || deviceGroup.getId() == 0){
             errorList.add("Object is null");
         }else{
-            if(!this.datacenterService.existsById(datacenter.getId())){
-                errorList.add("DataCenter not defined");
+            if(!this.deviceGroupService.existsById(deviceGroup.getId())){
+                errorList.add("DeviceGroup not defined");
             }else{
-                if(datacenter.getName() != null && datacenter.getName().isEmpty()){
+                if(deviceGroup.getName() != null && deviceGroup.getName().isEmpty()){
                     errorList.add("Name is required");
                 }
-                if(datacenter.getCityId() != null && datacenter.getCityId().getId() == 0){
-                    errorList.add("City is required");
-                }
-                if(datacenter.getLocation() != null && datacenter.getLocation().isEmpty()){
-                    errorList.add("Location is required");
+                if(deviceGroup.getDeviceModel() != null && deviceGroup.getDeviceModel().getId() == 0){
+                    errorList.add("Device Model is required");
                 }
             }
         }
@@ -90,14 +84,14 @@ public class DatacenterValidate implements ValidateInterface<Datacenter> {
     }
 
     @Override
-    public ValidateObject deleteValidate(Datacenter datacenter) {
+    public ValidateObject deleteValidate(DeviceGroup deviceGroup) {
         ValidateObject validateObject = new ValidateObject();
         List<String> errorList = new ArrayList<>();
-        if(datacenter == null){
+        if(deviceGroup == null){
             errorList.add("Object is null");
         }else{
-            if(!this.datacenterService.existsById(datacenter.getId())){
-                errorList.add("DataCenter not defined");
+            if(!this.deviceGroupService.existsById(deviceGroup.getId())){
+                errorList.add("DeviceGroup not defined");
             }
         }
         validateObject.setFaultmessage(errorList);
@@ -110,13 +104,13 @@ public class DatacenterValidate implements ValidateInterface<Datacenter> {
     }
 
     @Override
-    public ValidateObject findOneValidate(Datacenter datacenter) {
+    public ValidateObject findOneValidate(DeviceGroup deviceGroup) {
         ValidateObject validateObject = new ValidateObject();
         List<String> errorList = new ArrayList<>();
-        if(datacenter == null){
+        if(deviceGroup == null){
             errorList.add("Object is null");
         }else{
-            if(!this.datacenterService.existsById(datacenter.getId())){
+            if(!this.deviceGroupService.existsById(deviceGroup.getId())){
                 errorList.add("Device not defined");
             }
         }
@@ -133,8 +127,8 @@ public class DatacenterValidate implements ValidateInterface<Datacenter> {
     public ValidateObject findByIdValidate(long id) {
         ValidateObject validateObject = new ValidateObject();
         List<String> errorList = new ArrayList<>();
-        if(!this.datacenterService.existsById(id)){
-            errorList.add("Device not defined");
+        if(!this.deviceGroupService.existsById(id)){
+            errorList.add("DeviceGroup not defined");
         }
         validateObject.setFaultmessage(errorList);
         if(errorList.size() >0){

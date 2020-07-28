@@ -20,6 +20,7 @@ public class DeviceProperty implements Serializable {
     @JoinColumn(name = "device_id")
     private Device device;
 
+    @Column(name = "date_time" , columnDefinition = "number")
     private Double value;
 
     @Column(name = "date_time")
