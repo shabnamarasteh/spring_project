@@ -1,6 +1,6 @@
 package org.j2os.monitor.modules.device.model.entity;
 
-import org.j2os.monitor.modules.admin.model.entity.OwnerDevice;
+import org.j2os.monitor.modules.owner.model.entity.OwnerDevice;
 
 import javax.persistence.*;
 

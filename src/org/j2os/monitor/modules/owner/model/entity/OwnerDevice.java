@@ -1,4 +1,4 @@
-package org.j2os.monitor.modules.admin.model.entity;
+package org.j2os.monitor.modules.owner.model.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;

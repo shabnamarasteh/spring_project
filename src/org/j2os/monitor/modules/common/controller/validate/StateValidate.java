@@ -1,7 +1,7 @@
 package org.j2os.monitor.modules.common.controller.validate;
 
 import org.j2os.monitor.modules.common.model.entity.State;
-import org.j2os.monitor.modules.common.model.entity.ValidateObject;
+import org.j2os.monitor.modules.utils.ValidateObject;
 import org.j2os.monitor.modules.common.model.service.StateService;
 import org.j2os.monitor.modules.utils.Interfaces.validate.ValidateInterface;
 import org.j2os.monitor.modules.utils.annotation.ValidationAnnotation;

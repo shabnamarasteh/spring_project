@@ -1,6 +1,6 @@
 package org.j2os.monitor.modules.device.controller.validate;
 
-import org.j2os.monitor.modules.common.model.entity.ValidateObject;
+import org.j2os.monitor.modules.utils.ValidateObject;
 import org.j2os.monitor.modules.device.model.entity.DeviceProperty;
 import org.j2os.monitor.modules.device.model.service.DevicePropertyService;
 import org.j2os.monitor.modules.utils.Interfaces.validate.ValidateInterface;
