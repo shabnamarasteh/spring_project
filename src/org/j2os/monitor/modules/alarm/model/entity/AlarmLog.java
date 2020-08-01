@@ -5,17 +5,19 @@ import org.j2os.monitor.modules.admin.model.entity.Admin;
 import javax.persistence.*;
 
 @Entity
-@Table(name="alarmLog")
+@Table(name = "alarmLog")
 public class AlarmLog {
     @Id
-    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="alarmlog_seq")
-    @SequenceGenerator(name="alarmlog_seq", sequenceName="alarmlog_seq", allocationSize=1)
+    @Column(name = "id", columnDefinition = "number")
+    @SequenceGenerator(name = "alarmlog_seq", sequenceName = "alarmlog_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "alarmlog_seq")
     private long alarmLogId;
 
     @ManyToOne
     @JoinColumn(name = "alarm_note_id")
     private AlarmNote alarm_note_id;
-    @Column(columnDefinition = "varchar2(200)")
+
+    @Column(name = "message", columnDefinition = "varchar2(200)")
     private String message;
 
     @ManyToOne

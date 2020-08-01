@@ -6,38 +6,40 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="alarmNote")
+@Table(name="alarm_note")
 public class AlarmNote {
     @Id
-    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="alarmnote_seq")
-    @SequenceGenerator(name="alarmnote_seq", sequenceName="alarmnote_seq", allocationSize=1)
-    private long alarmNoteId;
+    @Column(name = "id", columnDefinition = "number")
+    @SequenceGenerator(name="alarm_note_seq", sequenceName="alarm_note_seq", allocationSize=1)
+    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="alarm_note_seq")
+    private long id;
 
     @ManyToOne
-    @JoinColumn(name = "Device_Property_id")
+    @JoinColumn(name = "device_property_id")
     private DeviceProperty deviceProperty;
+
+    @Column(name = "name", columnDefinition = "nvarchar2(200)")
     private String name;
+
+    @Column(name = "message", columnDefinition = "nvarchar2(500)")
     private String message;
 
-    @OneToMany(mappedBy = "alarm_note_id")
-    private List<AlarmLog> alarmLogList;
 
     public AlarmNote() {
     }
 
-    public AlarmNote(DeviceProperty deviceProperty, String name, String message, List<AlarmLog> alarmLogList) {
+    public AlarmNote(DeviceProperty deviceProperty, String name, String message) {
         this.deviceProperty = deviceProperty;
         this.name = name;
         this.message = message;
-        this.alarmLogList = alarmLogList;
     }
 
-    public long getAlarmNoteId() {
-        return alarmNoteId;
+    public long getId() {
+        return id;
     }
 
-    public void setAlarmNoteId(long alarmNoteId) {
-        this.alarmNoteId = alarmNoteId;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public DeviceProperty getDeviceProperty() {
@@ -62,13 +64,5 @@ public class AlarmNote {
 
     public void setMessage(String message) {
         this.message = message;
-    }
-
-    public List<AlarmLog> getAlarmLogList() {
-        return alarmLogList;
-    }
-
-    public void setAlarmLogList(List<AlarmLog> alarmLogList) {
-        this.alarmLogList = alarmLogList;
     }
 }

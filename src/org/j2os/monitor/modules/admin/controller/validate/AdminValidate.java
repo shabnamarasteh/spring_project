@@ -26,13 +26,13 @@ public class AdminValidate implements ValidateInterface<Admin> {
         if(admin == null){
             errorList.add("Object is null");
         }else{
-            if(admin.getRole_id() == null || admin.getRole_id().getId() == 0){
+            if(admin.getRoleId() == null || admin.getRoleId().getId() == 0){
                 errorList.add("Role is required");
             }
-            if(admin.getFirstname() == null || admin.getFirstname().isEmpty()){
+            if(admin.getFirstName() == null || admin.getFirstName().isEmpty()){
                 errorList.add("FirstName is required");
             }
-            if(admin.getLastname() == null || admin.getLastname().isEmpty()){
+            if(admin.getLastName() == null || admin.getLastName().isEmpty()){
                 errorList.add("LastName is required");
             }
             if(admin.getEmail() == null || admin.getEmail().isEmpty()){
@@ -58,13 +58,13 @@ public class AdminValidate implements ValidateInterface<Admin> {
         if(admin == null){
             errorList.add("Object is null");
         }else{
-            if(admin.getRole_id() == null || admin.getRole_id().getId() == 0){
+            if(admin.getRoleId() == null || admin.getRoleId().getId() == 0){
                 errorList.add("Role is required");
             }
-            if(admin.getFirstname() == null || admin.getFirstname().isEmpty()){
+            if(admin.getFirstName() == null || admin.getFirstName().isEmpty()){
                 errorList.add("FirstName is required");
             }
-            if(admin.getLastname() == null || admin.getLastname().isEmpty()){
+            if(admin.getLastName() == null || admin.getLastName().isEmpty()){
                 errorList.add("LastName is required");
             }
             if(admin.getEmail() == null || admin.getEmail().isEmpty()){

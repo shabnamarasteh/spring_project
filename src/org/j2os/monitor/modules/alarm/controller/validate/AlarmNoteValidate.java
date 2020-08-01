@@ -2,8 +2,8 @@ package org.j2os.monitor.modules.alarm.controller.validate;
 
 import org.j2os.monitor.modules.alarm.model.entity.AlarmNote;
 import org.j2os.monitor.modules.alarm.model.service.AlarmNoteService;
-import org.j2os.monitor.modules.common.model.entity.ValidateObject;
 import org.j2os.monitor.modules.utils.Interfaces.validate.ValidateInterface;
+import org.j2os.monitor.modules.utils.ValidateObject;
 import org.j2os.monitor.modules.utils.annotation.ValidationAnnotation;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -85,7 +85,7 @@ public class AlarmNoteValidate implements ValidateInterface<AlarmNote> {
         if(alarmNote == null){
             errorList.add("Object is null");
         }else{
-            if(!this.alarmNoteService.existsById(alarmNote.getAlarmNoteId())){
+            if(!this.alarmNoteService.existsById(alarmNote.getId())){
                 errorList.add("AlarmNote not defined");
             }
         }
@@ -105,7 +105,7 @@ public class AlarmNoteValidate implements ValidateInterface<AlarmNote> {
         if(alarmNote == null){
             errorList.add("Object is null");
         }else{
-            if(!this.alarmNoteService.existsById(alarmNote.getAlarmNoteId())){
+            if(!this.alarmNoteService.existsById(alarmNote.getId())){
                 errorList.add("AlarmNote not defined");
             }
         }
