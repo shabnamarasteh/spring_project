@@ -2,6 +2,7 @@ package org.j2os.monitor.modules.device.model.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Table(name = "device_model_property")
 @Entity
@@ -27,6 +28,28 @@ public class DeviceModelProperty implements Serializable {
 
     @Column(name = "threshold", columnDefinition = "number(10,2)")
     private Long threshold;
+
+    @Column(name = "creation_at", updatable = false)
+    private LocalDateTime createdAt;
+
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
+
+    @Column(name = "creation_by", updatable = false)
+    private LocalDateTime createdBy;
+
+    @Column(name = "updated_by")
+    private LocalDateTime updatedBy;
+
+    @PrePersist
+    protected void onCreatedAt() {
+        createdAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdatedAt() {
+        updatedAt = LocalDateTime.now();
+    }
 
     public DeviceModelProperty() {
     }
@@ -85,5 +108,37 @@ public class DeviceModelProperty implements Serializable {
 
     public void setThreshold(Long threshold) {
         this.threshold = threshold;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public LocalDateTime getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(LocalDateTime createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public LocalDateTime getUpdatedBy() {
+        return updatedBy;
+    }
+
+    public void setUpdatedBy(LocalDateTime updatedBy) {
+        this.updatedBy = updatedBy;
     }
 }

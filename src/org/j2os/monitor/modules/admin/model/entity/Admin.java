@@ -39,6 +39,12 @@ public class Admin {
     @JoinColumn(name = "role_id")
     private Role roleId;
 
+    @Column(name = "creation_by", updatable = false)
+    private LocalDateTime createdBy;
+
+    @Column(name = "updated_by")
+    private LocalDateTime updatedBy;
+
     @PrePersist
     protected void onCreatedAt() {
         createdAt = LocalDateTime.now();
@@ -134,5 +140,21 @@ public class Admin {
 
     public void setRoleId(Role roleId) {
         this.roleId = roleId;
+    }
+
+    public LocalDateTime getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(LocalDateTime createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public LocalDateTime getUpdatedBy() {
+        return updatedBy;
+    }
+
+    public void setUpdatedBy(LocalDateTime updatedBy) {
+        this.updatedBy = updatedBy;
     }
 }
