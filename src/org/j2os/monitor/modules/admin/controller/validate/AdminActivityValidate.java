@@ -2,7 +2,7 @@ package org.j2os.monitor.modules.admin.controller.validate;
 
 import org.j2os.monitor.modules.admin.model.entity.AdminActivity;
 import org.j2os.monitor.modules.admin.model.service.AdminActivityService;
-import org.j2os.monitor.modules.common.model.entity.ValidateObject;
+import org.j2os.monitor.modules.utils.ValidateObject;
 import org.j2os.monitor.modules.utils.Interfaces.validate.ValidateInterface;
 import org.j2os.monitor.modules.utils.annotation.ValidationAnnotation;
 import org.springframework.beans.factory.annotation.Autowired;

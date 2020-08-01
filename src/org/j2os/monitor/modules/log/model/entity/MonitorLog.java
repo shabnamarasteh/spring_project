@@ -1,4 +1,4 @@
-package org.j2os.monitor.modules.common.model.entity;
+package org.j2os.monitor.modules.log.model.entity;
 import org.j2os.monitor.modules.device.model.entity.DeviceProperty;
 
 import javax.persistence.*;
