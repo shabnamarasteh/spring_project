@@ -23,50 +23,44 @@ public class DeviceGroupValidate implements ValidateInterface<DeviceGroup> {
     public ValidateObject addValidate(DeviceGroup deviceGroup) {
         ValidateObject validateObject = new ValidateObject();
         List<String> errorList = new ArrayList<>();
-        if(deviceGroup == null){
+        if (deviceGroup == null) {
             errorList.add("Object is null");
-        }else{
-            if(deviceGroup.getName() == null || deviceGroup.getName().isEmpty()){
+        } else {
+            if (deviceGroup.getName() == null || deviceGroup.getName().isEmpty()) {
                 errorList.add("Name is required");
-            }
-            if(deviceGroup.getDeviceModel() == null || deviceGroup.getDeviceModel().getId() == 0){
-                errorList.add("Device Model is required");
             }
         }
         validateObject.setFaultmessage(errorList);
-        if(errorList.size() >0){
+        if (errorList.size() > 0) {
             validateObject.setResult("error");
-        }else{
+        } else {
             validateObject.setResult("success");
         }
-        return  validateObject;
+        return validateObject;
     }
 
     @Override
     public ValidateObject updateValidate(DeviceGroup deviceGroup) {
         ValidateObject validateObject = new ValidateObject();
         List<String> errorList = new ArrayList<>();
-        if(deviceGroup == null || deviceGroup.getId() == 0){
+        if (deviceGroup == null || deviceGroup.getId() == 0) {
             errorList.add("Object is null");
-        }else{
-            if(!this.deviceGroupService.existsById(deviceGroup.getId())){
+        } else {
+            if (!this.deviceGroupService.existsById(deviceGroup.getId())) {
                 errorList.add("DeviceGroup not defined");
-            }else{
-                if(deviceGroup.getName() != null && deviceGroup.getName().isEmpty()){
+            } else {
+                if (deviceGroup.getName() != null && deviceGroup.getName().isEmpty()) {
                     errorList.add("Name is required");
-                }
-                if(deviceGroup.getDeviceModel() != null && deviceGroup.getDeviceModel().getId() == 0){
-                    errorList.add("Device Model is required");
                 }
             }
         }
         validateObject.setFaultmessage(errorList);
-        if(errorList.size() >0){
+        if (errorList.size() > 0) {
             validateObject.setResult("error");
-        }else{
+        } else {
             validateObject.setResult("success");
         }
-        return  validateObject;
+        return validateObject;
     }
 
     @Override
@@ -75,67 +69,67 @@ public class DeviceGroupValidate implements ValidateInterface<DeviceGroup> {
         List<String> errorList = new ArrayList<>();
 
         validateObject.setFaultmessage(errorList);
-        if(errorList.size() >0){
+        if (errorList.size() > 0) {
             validateObject.setResult("error");
-        }else{
+        } else {
             validateObject.setResult("success");
         }
-        return  validateObject;
+        return validateObject;
     }
 
     @Override
     public ValidateObject deleteValidate(DeviceGroup deviceGroup) {
         ValidateObject validateObject = new ValidateObject();
         List<String> errorList = new ArrayList<>();
-        if(deviceGroup == null){
+        if (deviceGroup == null) {
             errorList.add("Object is null");
-        }else{
-            if(!this.deviceGroupService.existsById(deviceGroup.getId())){
+        } else {
+            if (!this.deviceGroupService.existsById(deviceGroup.getId())) {
                 errorList.add("DeviceGroup not defined");
             }
         }
         validateObject.setFaultmessage(errorList);
-        if(errorList.size() >0){
+        if (errorList.size() > 0) {
             validateObject.setResult("error");
-        }else{
+        } else {
             validateObject.setResult("success");
         }
-        return  validateObject;
+        return validateObject;
     }
 
     @Override
     public ValidateObject findOneValidate(DeviceGroup deviceGroup) {
         ValidateObject validateObject = new ValidateObject();
         List<String> errorList = new ArrayList<>();
-        if(deviceGroup == null){
+        if (deviceGroup == null) {
             errorList.add("Object is null");
-        }else{
-            if(!this.deviceGroupService.existsById(deviceGroup.getId())){
+        } else {
+            if (!this.deviceGroupService.existsById(deviceGroup.getId())) {
                 errorList.add("Device not defined");
             }
         }
         validateObject.setFaultmessage(errorList);
-        if(errorList.size() >0){
+        if (errorList.size() > 0) {
             validateObject.setResult("error");
-        }else{
+        } else {
             validateObject.setResult("success");
         }
-        return  validateObject;
+        return validateObject;
     }
 
     @Override
     public ValidateObject findByIdValidate(long id) {
         ValidateObject validateObject = new ValidateObject();
         List<String> errorList = new ArrayList<>();
-        if(!this.deviceGroupService.existsById(id)){
+        if (!this.deviceGroupService.existsById(id)) {
             errorList.add("DeviceGroup not defined");
         }
         validateObject.setFaultmessage(errorList);
-        if(errorList.size() >0){
+        if (errorList.size() > 0) {
             validateObject.setResult("error");
-        }else{
+        } else {
             validateObject.setResult("success");
         }
-        return  validateObject;
+        return validateObject;
     }
 }

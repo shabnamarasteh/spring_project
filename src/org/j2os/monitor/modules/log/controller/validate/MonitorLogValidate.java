@@ -36,7 +36,7 @@ public class MonitorLogValidate implements ValidateInterface<MonitorLog> {
                 if (this.devicePropertyService.existsById(monitorLog.getDeviceProperty().getId())){
                     errorList.add("DeviceProperty is not found");
                 }
-                if(monitorLog.getValue() == null || monitorLog.getValue().isEmpty()){
+                if(monitorLog.getValue() == null || monitorLog.getValue() < 0){
                     errorList.add("Name is required");
                 }
             }
