@@ -1,9 +1,9 @@
 package org.j2os.monitor.modules.common.controller.validate;
 
-import org.j2os.monitor.modules.common.model.entity.MonitorLog;
-import org.j2os.monitor.modules.common.model.entity.ValidateObject;
 import org.j2os.monitor.modules.common.model.service.MonitorLogService;
+import org.j2os.monitor.modules.log.model.entity.MonitorLog;
 import org.j2os.monitor.modules.utils.Interfaces.validate.ValidateInterface;
+import org.j2os.monitor.modules.utils.ValidateObject;
 import org.j2os.monitor.modules.utils.annotation.ValidationAnnotation;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -23,46 +23,46 @@ public class MonitorLogValidate implements ValidateInterface<MonitorLog> {
     public ValidateObject addValidate(MonitorLog monitorLog) {
         ValidateObject validateObject = new ValidateObject();
         List<String> errorList = new ArrayList<>();
-        if(monitorLog == null){
+        if (monitorLog == null) {
             errorList.add("Object is null");
-        }else{
-            if(monitorLog.getValue() == null || monitorLog.getValue().isEmpty()){
+        } else {
+            if (monitorLog.getValue() == null || monitorLog.getValue() < 0) {
                 errorList.add("Value is required");
             }
-            if(monitorLog.getDeviceProperty() == null || monitorLog.getDeviceProperty().getId() == 0){
+            if (monitorLog.getDeviceProperty() == null || monitorLog.getDeviceProperty().getId() == 0) {
                 errorList.add("DeviceProperty is required");
             }
         }
         validateObject.setFaultmessage(errorList);
-        if(errorList.size() >0){
+        if (errorList.size() > 0) {
             validateObject.setResult("error");
-        }else{
+        } else {
             validateObject.setResult("success");
         }
-        return  validateObject;
+        return validateObject;
     }
 
     @Override
     public ValidateObject updateValidate(MonitorLog monitorLog) {
         ValidateObject validateObject = new ValidateObject();
         List<String> errorList = new ArrayList<>();
-        if(monitorLog == null){
+        if (monitorLog == null) {
             errorList.add("Object is null");
-        }else{
-            if(monitorLog.getValue() == null || monitorLog.getValue().isEmpty()){
+        } else {
+            if (monitorLog.getValue() == null || monitorLog.getValue() < 0) {
                 errorList.add("Value is required");
             }
-            if(monitorLog.getDeviceProperty() == null || monitorLog.getDeviceProperty().getId() == 0){
+            if (monitorLog.getDeviceProperty() == null || monitorLog.getDeviceProperty().getId() == 0) {
                 errorList.add("DeviceProperty is required");
             }
         }
         validateObject.setFaultmessage(errorList);
-        if(errorList.size() >0){
+        if (errorList.size() > 0) {
             validateObject.setResult("error");
-        }else{
+        } else {
             validateObject.setResult("success");
         }
-        return  validateObject;
+        return validateObject;
     }
 
     @Override
@@ -70,67 +70,67 @@ public class MonitorLogValidate implements ValidateInterface<MonitorLog> {
         ValidateObject validateObject = new ValidateObject();
         List<String> errorList = new ArrayList<>();
         validateObject.setFaultmessage(errorList);
-        if(errorList.size() >0){
+        if (errorList.size() > 0) {
             validateObject.setResult("error");
-        }else{
+        } else {
             validateObject.setResult("success");
         }
-        return  validateObject;
+        return validateObject;
     }
 
     @Override
     public ValidateObject deleteValidate(MonitorLog monitorLog) {
         ValidateObject validateObject = new ValidateObject();
         List<String> errorList = new ArrayList<>();
-        if(monitorLog == null){
+        if (monitorLog == null) {
             errorList.add("Object is null");
-        }else{
-            if(!this.monitorLogService.existsById(monitorLog.getMonitorlogId())){
+        } else {
+            if (!this.monitorLogService.existsById(monitorLog.getId())) {
                 errorList.add("MonitorLog not defined");
             }
         }
         validateObject.setFaultmessage(errorList);
-        if(errorList.size() >0){
+        if (errorList.size() > 0) {
             validateObject.setResult("error");
-        }else{
+        } else {
             validateObject.setResult("success");
         }
-        return  validateObject;
+        return validateObject;
     }
 
     @Override
     public ValidateObject findOneValidate(MonitorLog monitorLog) {
         ValidateObject validateObject = new ValidateObject();
         List<String> errorList = new ArrayList<>();
-        if(monitorLog == null){
+        if (monitorLog == null) {
             errorList.add("Object is null");
-        }else{
-            if(!this.monitorLogService.existsById(monitorLog.getMonitorlogId())){
+        } else {
+            if (!this.monitorLogService.existsById(monitorLog.getId())) {
                 errorList.add("MonitorLog not defined");
             }
         }
         validateObject.setFaultmessage(errorList);
-        if(errorList.size() >0){
+        if (errorList.size() > 0) {
             validateObject.setResult("error");
-        }else{
+        } else {
             validateObject.setResult("success");
         }
-        return  validateObject;
+        return validateObject;
     }
 
     @Override
     public ValidateObject findByIdValidate(long id) {
         ValidateObject validateObject = new ValidateObject();
         List<String> errorList = new ArrayList<>();
-        if(!this.monitorLogService.existsById(id)){
+        if (!this.monitorLogService.existsById(id)) {
             errorList.add("MonitorLog not defined");
         }
         validateObject.setFaultmessage(errorList);
-        if(errorList.size() >0){
+        if (errorList.size() > 0) {
             validateObject.setResult("error");
-        }else{
+        } else {
             validateObject.setResult("success");
         }
-        return  validateObject;
+        return validateObject;
     }
 }

@@ -2,8 +2,8 @@ package org.j2os.monitor.modules.alarm.controller.validate;
 
 import org.j2os.monitor.modules.alarm.model.entity.AlarmLog;
 import org.j2os.monitor.modules.alarm.model.service.AlarmLogService;
-import org.j2os.monitor.modules.common.model.entity.ValidateObject;
 import org.j2os.monitor.modules.utils.Interfaces.validate.ValidateInterface;
+import org.j2os.monitor.modules.utils.ValidateObject;
 import org.j2os.monitor.modules.utils.annotation.ValidationAnnotation;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -32,7 +32,7 @@ public class AlarmLogValidate implements ValidateInterface<AlarmLog> {
             if(alarmLog.getAdmin() == null || alarmLog.getAdmin().getId() == 0){
                 errorList.add("Admin is required");
             }
-            if(alarmLog.getAlarm_note_id() == null || alarmLog.getAlarm_note_id().getAlarmNoteId() == 0){
+            if(alarmLog.getAlarm_note_id() == null || alarmLog.getAlarm_note_id().getId() == 0){
                 errorList.add("Alarm_note_id is required");
             }
         }
@@ -58,7 +58,7 @@ public class AlarmLogValidate implements ValidateInterface<AlarmLog> {
             if(alarmLog.getAdmin() == null || alarmLog.getAdmin().getId() == 0){
                 errorList.add("Admin is required");
             }
-            if(alarmLog.getAlarm_note_id() == null || alarmLog.getAlarm_note_id().getAlarmNoteId() == 0){
+            if(alarmLog.getAlarm_note_id() == null || alarmLog.getAlarm_note_id().getId() == 0){
                 errorList.add("Alarm_note_id is required");
             }
         }

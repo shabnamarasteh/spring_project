@@ -1,39 +1,44 @@
 package org.j2os.monitor.modules.log.model.entity;
+
 import org.j2os.monitor.modules.device.model.entity.DeviceProperty;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name="city")
+@Table(name = "monitor_log")
 public class MonitorLog {
     @Id
-    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="monitorlog_seq")
-    @SequenceGenerator(name="monitorlog_seq", sequenceName="monitorlog_seq", allocationSize=1)
-    private long monitorlogId;
+    @Column(name = "id", columnDefinition = "number")
+    @SequenceGenerator(name = "monitor_log_seq", sequenceName = "monitor_log_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "monitor_log_seq")
+    private long Id;
 
     @ManyToOne
     @JoinColumn(name = "device_property_id")
     private DeviceProperty deviceProperty;
 
-    @Column(name = "value" , columnDefinition = "number")
-    private String value;
+    @Column(name = "value", columnDefinition = "number(10,2)")
+    private Double value;
 
-    @Column(name = "creation_at" , updatable = false)
+    @Column(name = "creation_at", updatable = false)
     private LocalDateTime createdAt;
 
-    public MonitorLog(DeviceProperty deviceProperty, String value, LocalDateTime createdAt) {
+    public MonitorLog() {
+    }
+
+    public MonitorLog(DeviceProperty deviceProperty, Double value, LocalDateTime createdAt) {
         this.deviceProperty = deviceProperty;
         this.value = value;
         this.createdAt = createdAt;
     }
 
-    public long getMonitorlogId() {
-        return monitorlogId;
+    public long getId() {
+        return Id;
     }
 
-    public void setMonitorlogId(long monitorlogId) {
-        this.monitorlogId = monitorlogId;
+    public void setId(long id) {
+        Id = id;
     }
 
     public DeviceProperty getDeviceProperty() {
@@ -44,11 +49,11 @@ public class MonitorLog {
         this.deviceProperty = deviceProperty;
     }
 
-    public String getValue() {
+    public Double getValue() {
         return value;
     }
 
-    public void setValue(String value) {
+    public void setValue(Double value) {
         this.value = value;
     }
 

@@ -3,41 +3,65 @@ package org.j2os.monitor.modules.alarm.model.entity;
 import org.j2os.monitor.modules.device.model.entity.DeviceProperty;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table(name="alarmNote")
+@Table(name = "alarm_note")
 public class AlarmNote {
     @Id
-    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="alarmnote_seq")
-    @SequenceGenerator(name="alarmnote_seq", sequenceName="alarmnote_seq", allocationSize=1)
-    private long alarmNoteId;
+    @Column(name = "id", columnDefinition = "number")
+    @SequenceGenerator(name = "alarm_note_seq", sequenceName = "alarm_note_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "alarm_note_seq")
+    private long id;
 
     @ManyToOne
-    @JoinColumn(name = "Device_Property_id")
+    @JoinColumn(name = "device_property_id")
     private DeviceProperty deviceProperty;
+
+    @Column(name = "name", columnDefinition = "nvarchar2(200)")
     private String name;
+
+    @Column(name = "message", columnDefinition = "nvarchar2(500)")
     private String message;
 
-    @OneToMany(mappedBy = "alarm_note_id")
-    private List<AlarmLog> alarmLogList;
+    @Column(name = "creation_at", updatable = false)
+    private LocalDateTime createdAt;
+
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
+
+    @Column(name = "creation_by", updatable = false)
+    private LocalDateTime createdBy;
+
+    @Column(name = "updated_by")
+    private LocalDateTime updatedBy;
+
+    @PrePersist
+    protected void onCreatedAt() {
+        createdAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdatedAt() {
+        updatedAt = LocalDateTime.now();
+    }
 
     public AlarmNote() {
     }
 
-    public AlarmNote(DeviceProperty deviceProperty, String name, String message, List<AlarmLog> alarmLogList) {
+    public AlarmNote(DeviceProperty deviceProperty, String name, String message) {
         this.deviceProperty = deviceProperty;
         this.name = name;
         this.message = message;
-        this.alarmLogList = alarmLogList;
     }
 
-    public long getAlarmNoteId() {
-        return alarmNoteId;
+    public long getId() {
+        return id;
     }
 
-    public void setAlarmNoteId(long alarmNoteId) {
-        this.alarmNoteId = alarmNoteId;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public DeviceProperty getDeviceProperty() {
@@ -64,11 +88,35 @@ public class AlarmNote {
         this.message = message;
     }
 
-    public List<AlarmLog> getAlarmLogList() {
-        return alarmLogList;
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 
-    public void setAlarmLogList(List<AlarmLog> alarmLogList) {
-        this.alarmLogList = alarmLogList;
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public LocalDateTime getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(LocalDateTime createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public LocalDateTime getUpdatedBy() {
+        return updatedBy;
+    }
+
+    public void setUpdatedBy(LocalDateTime updatedBy) {
+        this.updatedBy = updatedBy;
     }
 }

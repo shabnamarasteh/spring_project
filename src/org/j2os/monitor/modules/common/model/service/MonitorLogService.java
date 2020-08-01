@@ -1,7 +1,7 @@
 package org.j2os.monitor.modules.common.model.service;
 
-import org.j2os.monitor.modules.common.model.entity.MonitorLog;
 import org.j2os.monitor.modules.common.model.repository.MonitorLogRepository;
+import org.j2os.monitor.modules.log.model.entity.MonitorLog;
 import org.j2os.monitor.modules.utils.Interfaces.service.ServiceInterface;
 import org.j2os.monitor.modules.utils.MyBeanCopy;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +29,7 @@ public class MonitorLogService implements ServiceInterface<MonitorLog> {
     @Override
     @Transactional
     public void update(MonitorLog monitorLog) throws InvocationTargetException, IllegalAccessException {
-        MonitorLog exist = this.monitorLogRepository.findOne(MonitorLog.class,monitorLog.getMonitorlogId());
+        MonitorLog exist = this.monitorLogRepository.findOne(MonitorLog.class, monitorLog.getId());
         MyBeanCopy myBeanCopy = new MyBeanCopy();
         myBeanCopy.copyProperties(exist, monitorLog);
         this.monitorLogRepository.save(exist);
@@ -48,17 +48,17 @@ public class MonitorLogService implements ServiceInterface<MonitorLog> {
 
     @Override
     public MonitorLog findOne(MonitorLog monitorLog) {
-        return this.monitorLogRepository.findOne(MonitorLog.class,monitorLog.getMonitorlogId());
+        return this.monitorLogRepository.findOne(MonitorLog.class, monitorLog.getId());
     }
 
     @Override
     public Boolean existsById(long id) {
-        return this.monitorLogRepository.existsById(MonitorLog.class,id);
+        return this.monitorLogRepository.existsById(MonitorLog.class, id);
     }
 
     @Override
     public MonitorLog findById(long id) {
-        return this.monitorLogRepository.findOne(MonitorLog.class,id);
+        return this.monitorLogRepository.findOne(MonitorLog.class, id);
     }
 }
 

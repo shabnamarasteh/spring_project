@@ -1,40 +1,62 @@
 package org.j2os.monitor.modules.device.model.entity;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.List;
 
-@Table(name="device_model")
+@Table(name = "device_model")
 @Entity
 public class DeviceModel {
     @Id
-    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="device_model_seq")
-    @SequenceGenerator(name="device_model_seq", sequenceName="device_model_seq", allocationSize=1)
+    @Column(name = "id", columnDefinition = "number")
+    @SequenceGenerator(name = "device_model_seq", sequenceName = "device_model_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "device_model_seq")
     private long id;
 
-    @Column(columnDefinition = "varchar2(200)")
+    @Column(name = "name", columnDefinition = "nvarchar2(200)")
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "device_id")
-    private Device device;
+    @Column(name = "model", columnDefinition = "nvarchar2(200)")
+    private String model;
 
-    @OneToMany(mappedBy = "deviceModel")
-    private List<DeviceGroup> deviceGroups;
+    @Column(name = "description", columnDefinition = "nvarchar2(200)")
+    private String description;
 
     @Column(columnDefinition = "number")
     private long max_unit;
 
-    @Column(columnDefinition = "varchar2(200)")
+    @Column(columnDefinition = "nvarchar2(200)")
     private String cover;
 
+    @Column(name = "creation_at", updatable = false)
+    private LocalDateTime createdAt;
+
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
+
+    @Column(name = "creation_by", updatable = false)
+    private LocalDateTime createdBy;
+
+    @Column(name = "updated_by")
+    private LocalDateTime updatedBy;
+
+    @PrePersist
+    protected void onCreatedAt() {
+        createdAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdatedAt() {
+        updatedAt = LocalDateTime.now();
+    }
 
     public DeviceModel() {
     }
 
-    public DeviceModel(String name, Device device, List<DeviceGroup> deviceGroups, long max_unit, String cover) {
+    public DeviceModel(String name, String model, String description, long max_unit, String cover) {
         this.name = name;
-        this.device = device;
-        this.deviceGroups = deviceGroups;
+        this.model = model;
+        this.description = description;
         this.max_unit = max_unit;
         this.cover = cover;
     }
@@ -55,20 +77,20 @@ public class DeviceModel {
         this.name = name;
     }
 
-    public Device getDevice() {
-        return device;
+    public String getModel() {
+        return model;
     }
 
-    public void setDevice(Device device) {
-        this.device = device;
+    public void setModel(String model) {
+        this.model = model;
     }
 
-    public List<DeviceGroup> getDeviceGroups() {
-        return deviceGroups;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDeviceGroups(List<DeviceGroup> deviceGroups) {
-        this.deviceGroups = deviceGroups;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public long getMax_unit() {
@@ -85,5 +107,37 @@ public class DeviceModel {
 
     public void setCover(String cover) {
         this.cover = cover;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public LocalDateTime getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(LocalDateTime createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public LocalDateTime getUpdatedBy() {
+        return updatedBy;
+    }
+
+    public void setUpdatedBy(LocalDateTime updatedBy) {
+        this.updatedBy = updatedBy;
     }
 }

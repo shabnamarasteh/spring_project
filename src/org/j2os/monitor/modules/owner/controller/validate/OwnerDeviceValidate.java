@@ -26,14 +26,14 @@ public class OwnerDeviceValidate  implements ValidateInterface<OwnerDevice> {
         if(ownerDevice == null){
             errorList.add("Object is null");
         }else{
-            if(ownerDevice.getFirstname() == null || ownerDevice.getFirstname().isEmpty()){
+            if(ownerDevice.getFirstName() == null || ownerDevice.getFirstName().isEmpty()){
                 errorList.add("FirstName is required");
             }
-            if(ownerDevice.getLastname() == null || ownerDevice.getLastname().isEmpty()){
-                errorList.add("Lastname is required");
+            if(ownerDevice.getLastName() == null || ownerDevice.getLastName().isEmpty()){
+                errorList.add("LastName is required");
             }
-            if(ownerDevice.getMobilenumber() == null || ownerDevice.getMobilenumber().isEmpty()){
-                errorList.add("Mobilenumber is required");
+            if(ownerDevice.getMobileNumber() == null || ownerDevice.getMobileNumber().isEmpty()){
+                errorList.add("MobileNumber is required");
             }
         }
         validateObject.setFaultmessage(errorList);
@@ -52,14 +52,14 @@ public class OwnerDeviceValidate  implements ValidateInterface<OwnerDevice> {
         if(ownerDevice == null){
             errorList.add("Object is null");
         }else{
-            if(ownerDevice.getFirstname() == null || ownerDevice.getFirstname().isEmpty()){
+            if(ownerDevice.getFirstName() == null || ownerDevice.getFirstName().isEmpty()){
                 errorList.add("FirstName is required");
             }
-            if(ownerDevice.getLastname() == null || ownerDevice.getLastname().isEmpty()){
-                errorList.add("Lastname is required");
+            if(ownerDevice.getLastName() == null || ownerDevice.getLastName().isEmpty()){
+                errorList.add("LastName is required");
             }
-            if(ownerDevice.getMobilenumber() == null || ownerDevice.getMobilenumber().isEmpty()){
-                errorList.add("Mobilenumber is required");
+            if(ownerDevice.getMobileNumber() == null || ownerDevice.getMobileNumber().isEmpty()){
+                errorList.add("MobileNumber is required");
             }
         }
         validateObject.setFaultmessage(errorList);

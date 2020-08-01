@@ -26,7 +26,7 @@ public class MonitorLogService implements ServiceInterface<MonitorLog> {
 
     @Override
     public void update(MonitorLog monitorLog) throws InvocationTargetException, IllegalAccessException {
-        MonitorLog exist = this.monitorLogRepository.findOne(MonitorLog.class, monitorLog.getMonitorlogId());
+        MonitorLog exist = this.monitorLogRepository.findOne(MonitorLog.class, monitorLog.getId());
         MyBeanCopy myBeanCopy = new MyBeanCopy();
         myBeanCopy.copyProperties(exist, monitorLog);
         this.monitorLogRepository.save(exist);
@@ -44,7 +44,7 @@ public class MonitorLogService implements ServiceInterface<MonitorLog> {
 
     @Override
     public MonitorLog findOne(MonitorLog monitorLog) {
-        return this.monitorLogRepository.findOne(MonitorLog.class, monitorLog.getMonitorlogId());
+        return this.monitorLogRepository.findOne(MonitorLog.class, monitorLog.getId());
     }
 
     @Override
