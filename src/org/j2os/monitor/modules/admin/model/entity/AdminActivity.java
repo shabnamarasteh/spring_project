@@ -5,23 +5,25 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name="admin_activity")
+@Table(name = "admin_activity")
 public class AdminActivity implements Serializable {
     @Id
-    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="admin_activity_seq")
-    @SequenceGenerator(name="admin_activity_seq", sequenceName="admin_activity_seq", allocationSize=1)
-    private long adminActivityId;
+    @Column(name = "id", columnDefinition = "number")
+    @SequenceGenerator(name = "admin_activity_seq", sequenceName = "admin_activity_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "admin_activity_seq")
+    private long id;
 
-    @Column(columnDefinition = "varchar2(50)")
+    @Column(name = "activity", columnDefinition = "varchar2(50)")
     private String activity;
 
     @ManyToOne
+    @JoinColumn(name = "admin_id")
     private Admin admin;
 
     @Column(name = "creation_at")
     private LocalDateTime createDate;
 
-    @Column(name = "ip_address",columnDefinition = "varchar2(20)")
+    @Column(name = "ip_address", columnDefinition = "varchar2(20)")
     private String ipAddress;
 
     public AdminActivity() {
@@ -35,11 +37,11 @@ public class AdminActivity implements Serializable {
     }
 
     public long getAdminActivityId() {
-        return adminActivityId;
+        return id;
     }
 
-    public void setAdminActivityId(long adminActivityId) {
-        this.adminActivityId = adminActivityId;
+    public void setAdminActivityId(long id) {
+        this.id = id;
     }
 
     public String getActivity() {

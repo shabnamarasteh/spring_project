@@ -6,34 +6,38 @@ import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
-@Table(name="admin")
+@Table(name = "admin")
 public class Admin {
     @Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="admin_seq")
-    @SequenceGenerator(name="admin_seq", sequenceName="admin_seq", allocationSize=1)
+    @Column(name = "id", columnDefinition = "number")
+    @SequenceGenerator(name = "admin_seq", sequenceName = "admin_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "admin_seq")
     private long id;
-    @Column(columnDefinition = "varchar2(200)")
-    private String firstname;
-    @Column(columnDefinition = "varchar2(200)")
-    private String lastname;
-    @Column(columnDefinition = "varchar2(200)")
+
+    @Column(name = "first_name", columnDefinition = "varchar2(200)")
+    private String firstName;
+
+    @Column(name = "lst_name", columnDefinition = "varchar2(200)")
+    private String lastName;
+
+    @Column(name = "email", columnDefinition = "varchar2(200)")
     private String email;
 
-    @Column(columnDefinition = "varchar2(200)")
+    @Column(name = "password", columnDefinition = "varchar2(200)")
     private String password;
 
     @Transient
     private String confirmPassword;
 
-    @Column(name = "creation_at" , updatable = false)
+    @Column(name = "creation_at", updatable = false)
     private LocalDateTime createdAt;
 
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
     @ManyToOne
-    @JoinColumn(name="role_id")
-    private Role role_id;
+    @JoinColumn(name = "role_id")
+    private Role roleId;
 
     @PrePersist
     protected void onCreatedAt() {
@@ -48,14 +52,17 @@ public class Admin {
     public Admin() {
     }
 
-    public Admin(String firstname, String lastname, String email, LocalDateTime createdAt, LocalDateTime updatedAt, Role role_id) {
-        this.firstname = firstname;
-        this.lastname = lastname;
+    public Admin(String firstName, String lastName, String email, String password, String confirmPassword, LocalDateTime createdAt, LocalDateTime updatedAt, Role roleId) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
+        this.password = password;
+        this.confirmPassword = confirmPassword;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
-        this.role_id = role_id;
+        this.roleId = roleId;
     }
+
 
     public long getId() {
         return id;
@@ -65,20 +72,20 @@ public class Admin {
         this.id = id;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getEmail() {
@@ -87,6 +94,22 @@ public class Admin {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
 
     public LocalDateTime getCreatedAt() {
@@ -105,27 +128,11 @@ public class Admin {
         this.updatedAt = updatedAt;
     }
 
-    public Role getRole_id() {
-        return role_id;
+    public Role getRoleId() {
+        return roleId;
     }
 
-    public void setRole_id(Role role_id) {
-        this.role_id = role_id;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }
-
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
+    public void setRoleId(Role roleId) {
+        this.roleId = roleId;
     }
 }
