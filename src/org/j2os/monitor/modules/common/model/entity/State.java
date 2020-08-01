@@ -6,11 +6,12 @@ import javax.persistence.*;
 @Table(name = "state")
 public class State {
     @Id
-    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="state_seq")
-    @SequenceGenerator(name="state_seq", sequenceName="state_seq", allocationSize=1)
+    @Column(name = "id", columnDefinition = "number")
+    @SequenceGenerator(name = "state_seq", sequenceName = "state_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "state_seq")
     private long id;
 
-    @Column(name = "name",columnDefinition = "varchar2(30)")
+    @Column(name = "name", columnDefinition = "varchar2(30)")
     private String name;
 
     public State() {

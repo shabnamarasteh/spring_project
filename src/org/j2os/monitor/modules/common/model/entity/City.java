@@ -3,14 +3,15 @@ package org.j2os.monitor.modules.common.model.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name="city")
+@Table(name = "city")
 public class City {
     @Id
-    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="city_seq")
-    @SequenceGenerator(name="city_seq", sequenceName="city_seq", allocationSize=1)
+    @Column(name = "id", columnDefinition = "number")
+    @SequenceGenerator(name = "city_seq", sequenceName = "city_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "city_seq")
     private long id;
 
-    @Column(name = "name" , columnDefinition = "varchar2(30)")
+    @Column(name = "name", columnDefinition = "varchar2(30)")
     private String name;
 
     @ManyToOne

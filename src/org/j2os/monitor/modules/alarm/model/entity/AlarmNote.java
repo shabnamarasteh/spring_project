@@ -6,12 +6,12 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="alarm_note")
+@Table(name = "alarm_note")
 public class AlarmNote {
     @Id
     @Column(name = "id", columnDefinition = "number")
-    @SequenceGenerator(name="alarm_note_seq", sequenceName="alarm_note_seq", allocationSize=1)
-    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="alarm_note_seq")
+    @SequenceGenerator(name = "alarm_note_seq", sequenceName = "alarm_note_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "alarm_note_seq")
     private long id;
 
     @ManyToOne
