@@ -8,8 +8,9 @@ import java.time.LocalDateTime;
 @Entity
 public class DeviceProperty implements Serializable {
     @Id
-    @SequenceGenerator(name = "devicPropertySeq",sequenceName = "deviceproperty_seq",allocationSize = 1,initialValue = 1)
-    @GeneratedValue(strategy = GenerationType.AUTO,generator = "devicPropertySeq")
+    @Column(name = "id", columnDefinition = "number")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "devic_property_seq")
+    @SequenceGenerator(name = "devic_property_seq", sequenceName = "devic_property_seq", allocationSize = 1)
     private Long id;
 
     @OneToOne
@@ -20,7 +21,7 @@ public class DeviceProperty implements Serializable {
     @JoinColumn(name = "device_id")
     private Device device;
 
-    @Column(name = "date_time" , columnDefinition = "number")
+    @Column(name = "date_time", columnDefinition = "number")
     private Double value;
 
     @Column(name = "date_time")

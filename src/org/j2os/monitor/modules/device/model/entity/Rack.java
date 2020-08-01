@@ -7,18 +7,19 @@ import java.io.Serializable;
 @Table(name = "rack")
 public class Rack implements Serializable {
     @Id
-    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="rack_seq")
-    @SequenceGenerator(name="rack_seq", sequenceName="rack_seq", allocationSize=1)
+    @Column(name = "id", columnDefinition = "number")
+    @SequenceGenerator(name = "rack_seq", sequenceName = "rack_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "rack_seq")
     private long id;
 
-    @Column(name = "name" , columnDefinition = "varchar2(200)")
+    @Column(name = "name", columnDefinition = "nvarchar2(200)")
     private String name;
 
     @ManyToOne
     @JoinColumn(name = "datacenter_id")
     private Datacenter datacenterId;
 
-    @Column(name = "max_unit" , columnDefinition = "number")
+    @Column(name = "max_unit", columnDefinition = "number")
     private long max_unit;
 
     public Rack() {

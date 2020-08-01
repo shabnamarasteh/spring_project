@@ -9,23 +9,23 @@ import java.util.List;
 @Entity
 public class DeviceGroup {
     @Id
-    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="device_model_seq")
-    @SequenceGenerator(name="device_model_seq", sequenceName="device_model_seq", allocationSize=1)
+    @Column(name = "id", columnDefinition = "number")
+    @SequenceGenerator(name = "device_model_seq", sequenceName = "device_model_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "device_model_seq")
     private long id;
 
-    @Column(name = "name", columnDefinition = "varchar2(200)")
+    @Column(name = "name", columnDefinition = "nvarchar2(200)")
     private String name;
 
-//    @JsonIgnore
-    @ManyToOne()
-    @JoinColumn(name="device_model_id")
-    private DeviceModel deviceModel;
+    @Column(name = "description", columnDefinition = "nvarchar2(200)")
+    private String description;
 
     public DeviceGroup() {
     }
 
-    public DeviceGroup(String name) {
+    public DeviceGroup(String name, String description) {
         this.name = name;
+        this.description = description;
     }
 
     public long getId() {
@@ -44,11 +44,11 @@ public class DeviceGroup {
         this.name = name;
     }
 
-    public DeviceModel getDeviceModel() {
-        return deviceModel;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDeviceModel(DeviceModel deviceModel) {
-        this.deviceModel = deviceModel;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

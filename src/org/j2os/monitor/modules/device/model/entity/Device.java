@@ -5,44 +5,45 @@ import org.j2os.monitor.modules.owner.model.entity.OwnerDevice;
 import javax.persistence.*;
 
 @Entity
-@Table(name="device")
+@Table(name = "device")
 public class Device {
     @Id
-    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="device_seq")
-    @SequenceGenerator(name="device_seq", sequenceName="device_seq", allocationSize=1)
+    @Column(name = "id", columnDefinition = "number")
+    @SequenceGenerator(name = "device_seq", sequenceName = "device_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "device_seq")
     private long id;
 
-    @Column(columnDefinition = "varchar2(200)")
+    @Column(name = "name", columnDefinition = "nvarchar2(200)")
     private String name;
 
-    @Column(columnDefinition = "varchar2(30)")
-    private String ip_address;
+    @Column(name = "ip_address", columnDefinition = "nvarchar2(30)")
+    private String ipAddress;
 
     @ManyToOne
     @JoinColumn(name = "device_model_id")
-    private DeviceModel deviceModelId;
+    private DeviceModel deviceMode;
 
     @ManyToOne
     @JoinColumn(name = "ownerId")
-    private OwnerDevice owner;
+    private OwnerDevice ownerDevice;
 
     @ManyToOne
     @JoinColumn(name = "rack_id")
     private Rack rackId;
 
     @Column(name = "start_unit", columnDefinition = "number")
-    private long start_unit;
+    private long startUnit;
 
     public Device() {
     }
 
-    public Device(String name, String ip_address, DeviceModel deviceModelId, OwnerDevice owner, Rack rackId, long start_unit) {
+    public Device(String name, String ipAddress, DeviceModel deviceMode, OwnerDevice ownerDevice, Rack rackId, long startUnit) {
         this.name = name;
-        this.ip_address = ip_address;
-        this.deviceModelId = deviceModelId;
-        this.owner = owner;
+        this.ipAddress = ipAddress;
+        this.deviceMode = deviceMode;
+        this.ownerDevice = ownerDevice;
         this.rackId = rackId;
-        this.start_unit = start_unit;
+        this.startUnit = startUnit;
     }
 
     public long getId() {
@@ -61,31 +62,29 @@ public class Device {
         this.name = name;
     }
 
-    public OwnerDevice getOwner() {
-        return owner;
+    public String getIpAddress() {
+        return ipAddress;
     }
 
-    public void setOwner(OwnerDevice owner) {
-        this.owner = owner;
+    public void setIpAddress(String ipAddress) {
+        this.ipAddress = ipAddress;
     }
 
-    public String getIp_address() {
-        return ip_address;
+    public DeviceModel getDeviceMode() {
+        return deviceMode;
     }
 
-    public void setIp_address(String ip_address) {
-        this.ip_address = ip_address;
+    public void setDeviceMode(DeviceModel deviceMode) {
+        this.deviceMode = deviceMode;
     }
 
-    public DeviceModel getDeviceModelId() {
-        return deviceModelId;
+    public OwnerDevice getOwnerDevice() {
+        return ownerDevice;
     }
 
-    public void setDeviceModelId(DeviceModel deviceModelId) {
-        this.deviceModelId = deviceModelId;
+    public void setOwnerDevice(OwnerDevice ownerDevice) {
+        this.ownerDevice = ownerDevice;
     }
-
-
 
     public Rack getRackId() {
         return rackId;
@@ -95,11 +94,11 @@ public class Device {
         this.rackId = rackId;
     }
 
-    public long getStart_unit() {
-        return start_unit;
+    public long getStartUnit() {
+        return startUnit;
     }
 
-    public void setStart_unit(long start_unit) {
-        this.start_unit = start_unit;
+    public void setStartUnit(long startUnit) {
+        this.startUnit = startUnit;
     }
 }

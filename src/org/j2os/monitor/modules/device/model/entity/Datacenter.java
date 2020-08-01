@@ -5,17 +5,24 @@ import org.j2os.monitor.modules.common.model.entity.City;
 import javax.persistence.*;
 
 @Entity
-@Table(name="datacenter")
+@Table(name = "datacenter")
 public class Datacenter {
     @Id
-    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="datacenter_seq")
-    @SequenceGenerator(name="datacenter_seq", sequenceName="datacenter_seq", allocationSize=1)
+    @Column(name = "id", columnDefinition = "number")
+    @SequenceGenerator(name = "datacenter_seq", sequenceName = "datacenter_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "datacenter_seq")
     private long id;
 
-    @Column(name = "name" , columnDefinition = "varchar2(200)")
+    @Column(name = "name", columnDefinition = "nvarchar2(200)")
     private String name;
 
-    @Column(name = "location" , columnDefinition = "varchar2(200)")
+    @Column(name = "description", columnDefinition = "nvarchar2(200)")
+    private String description;
+
+    @Column(name = "address", columnDefinition = "nvarchar2(200)")
+    private String address;
+
+    @Column(name = "location", columnDefinition = "nvarchar2(200)")
     private String location;
 
     @ManyToOne
@@ -25,8 +32,10 @@ public class Datacenter {
     public Datacenter() {
     }
 
-    public Datacenter(String name, String location, City cityId) {
+    public Datacenter(String name, String description, String address, String location, City cityId) {
         this.name = name;
+        this.description = description;
+        this.address = address;
         this.location = location;
         this.cityId = cityId;
     }
@@ -45,6 +54,22 @@ public class Datacenter {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getLocation() {

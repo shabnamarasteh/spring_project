@@ -7,11 +7,12 @@ import java.io.Serializable;
 @Entity
 public class DeviceModelProperty implements Serializable {
     @Id
-    @SequenceGenerator(name = "deviceModelPropertySeq",sequenceName = "devicemodelproperty_seq",allocationSize = 1,initialValue = 1)
-    @GeneratedValue(strategy = GenerationType.AUTO,generator = "deviceModelPropertySeq")
+    @Column(name = "id", columnDefinition = "number")
+    @SequenceGenerator(name = "device_model_property_seq", sequenceName = "device_model_property_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "device_model_property_seq")
     private Long id;
 
-    @Column(name = "name")
+    @Column(name = "name", columnDefinition = "nvarchar2(200)")
     private String name;
 
     @OneToOne
@@ -24,10 +25,18 @@ public class DeviceModelProperty implements Serializable {
     @Column(name = "url")
     private String url;
 
-    @Column(name = "tereshold")
-    private Long tereshold;
+    @Column(name = "threshold")
+    private Long threshold;
 
     public DeviceModelProperty() {
+    }
+
+    public DeviceModelProperty(String name, DeviceModel deviceModel, String type, String url, Long threshold) {
+        this.name = name;
+        this.deviceModel = deviceModel;
+        this.type = type;
+        this.url = url;
+        this.threshold = threshold;
     }
 
     public Long getId() {
@@ -70,11 +79,11 @@ public class DeviceModelProperty implements Serializable {
         this.url = url;
     }
 
-    public Long getTereshold() {
-        return tereshold;
+    public Long getThreshold() {
+        return threshold;
     }
 
-    public void setTereshold(Long tereshold) {
-        this.tereshold = tereshold;
+    public void setThreshold(Long threshold) {
+        this.threshold = threshold;
     }
 }
