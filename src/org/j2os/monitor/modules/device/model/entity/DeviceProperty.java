@@ -21,8 +21,8 @@ public class DeviceProperty implements Serializable {
     @JoinColumn(name = "device_id")
     private Device device;
 
-    @Column(name = "date_time", columnDefinition = "number")
-    private Double value;
+    @Column(name = "threshold", columnDefinition = "number(10,2)")
+    private Double threshold;
 
     @Column(name = "date_time")
     private LocalDateTime dateTime;
@@ -55,11 +55,11 @@ public class DeviceProperty implements Serializable {
     }
 
     public Double getValue() {
-        return value;
+        return threshold;
     }
 
-    public void setValue(Double value) {
-        this.value = value;
+    public void setValue(Double threshold) {
+        this.threshold = threshold;
     }
 
     public LocalDateTime getDateTime() {

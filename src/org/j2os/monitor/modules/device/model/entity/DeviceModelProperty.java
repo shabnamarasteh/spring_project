@@ -25,7 +25,7 @@ public class DeviceModelProperty implements Serializable {
     @Column(name = "url")
     private String url;
 
-    @Column(name = "threshold")
+    @Column(name = "threshold", columnDefinition = "number(10,2)")
     private Long threshold;
 
     public DeviceModelProperty() {

@@ -4,36 +4,37 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name="owner")
+@Table(name = "owner")
 public class OwnerDevice implements Serializable {
     @Id
-    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="owner_seq")
-    @SequenceGenerator(name="owner_seq", sequenceName="owner_seq", allocationSize=1)
+    @Column(name = "id", columnDefinition = "number")
+    @SequenceGenerator(name = "owner_seq", sequenceName = "owner_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "owner_seq")
     private long ownerId;
 
-    @Column(columnDefinition = "varchar2(30)")
-    private String firstname;
+    @Column(name = "first_name", columnDefinition = "nvarchar2(30)")
+    private String firstName;
 
-    @Column(columnDefinition = "varchar2(30)")
-    private String lastname;
+    @Column(name = "last_name", columnDefinition = "nvarchar2(30)")
+    private String lastName;
 
-    @Column(columnDefinition = "varchar2(30)")
-    private String phonenumber;
+    @Column(name = "phone_number", columnDefinition = "nvarchar2(30)")
+    private String phoneNumber;
 
-    @Column(columnDefinition = "varchar2(30)")
-    private String mobilenumber;
+    @Column(name = "mobile_number", columnDefinition = "nvarchar2(30)")
+    private String mobileNumber;
 
-    @Column(columnDefinition = "varchar2(70)")
+    @Column(name = "address", columnDefinition = "nvarchar2(70)")
     private String address;
 
     public OwnerDevice() {
     }
 
-    public OwnerDevice(String firstname, String lastname, String phonenumber, String mobilenumber, String address) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.phonenumber = phonenumber;
-        this.mobilenumber = mobilenumber;
+    public OwnerDevice(String firstName, String lastName, String phoneNumber, String mobileNumber, String address) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+        this.mobileNumber = mobileNumber;
         this.address = address;
     }
 
@@ -45,36 +46,36 @@ public class OwnerDevice implements Serializable {
         this.ownerId = ownerId;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getPhonenumber() {
-        return phonenumber;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhonenumber(String phonenumber) {
-        this.phonenumber = phonenumber;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
-    public String getMobilenumber() {
-        return mobilenumber;
+    public String getMobileNumber() {
+        return mobileNumber;
     }
 
-    public void setMobilenumber(String mobilenumber) {
-        this.mobilenumber = mobilenumber;
+    public void setMobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
     }
 
     public String getAddress() {
