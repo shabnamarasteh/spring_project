@@ -11,7 +11,7 @@ public class City {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "city_seq")
     private long id;
 
-    @Column(name = "name", columnDefinition = "varchar2(30)")
+    @Column(name = "name", columnDefinition = "nvarchar2(30)")
     private String name;
 
     @ManyToOne

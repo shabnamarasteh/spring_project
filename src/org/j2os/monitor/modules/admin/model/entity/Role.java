@@ -12,10 +12,10 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "role_seq")
     private long id;
 
-    @Column(name = "name", columnDefinition = "varchar2(200)")
+    @Column(name = "name", columnDefinition = "nvarchar2(200)")
     private String name;
 
-    @Column(name = "description", columnDefinition = "varchar2(500)")
+    @Column(name = "description", columnDefinition = "nvarchar2(500)")
     private String description;
 
     @Column(name = "is_manager", columnDefinition = "number(1)")

@@ -14,16 +14,16 @@ public class Admin {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "admin_seq")
     private long id;
 
-    @Column(name = "first_name", columnDefinition = "varchar2(200)")
+    @Column(name = "first_name", columnDefinition = "nvarchar2(200)")
     private String firstName;
 
-    @Column(name = "lst_name", columnDefinition = "varchar2(200)")
+    @Column(name = "lst_name", columnDefinition = "nvarchar2(200)")
     private String lastName;
 
-    @Column(name = "email", columnDefinition = "varchar2(200)")
+    @Column(name = "email", columnDefinition = "nvarchar2(200)")
     private String email;
 
-    @Column(name = "password", columnDefinition = "varchar2(200)")
+    @Column(name = "password", columnDefinition = "nvarchar2(200)")
     private String password;
 
     @Transient

@@ -13,7 +13,7 @@ public class AdminActivity implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "admin_activity_seq")
     private long id;
 
-    @Column(name = "activity", columnDefinition = "varchar2(50)")
+    @Column(name = "activity", columnDefinition = "nvarchar2(50)")
     private String activity;
 
     @ManyToOne
@@ -23,7 +23,7 @@ public class AdminActivity implements Serializable {
     @Column(name = "creation_at")
     private LocalDateTime createDate;
 
-    @Column(name = "ip_address", columnDefinition = "varchar2(20)")
+    @Column(name = "ip_address", columnDefinition = "nvarchar2(20)")
     private String ipAddress;
 
     public AdminActivity() {

@@ -17,7 +17,7 @@ public class AlarmLog {
     @JoinColumn(name = "alarm_note_id")
     private AlarmNote alarm_note_id;
 
-    @Column(name = "message", columnDefinition = "varchar2(200)")
+    @Column(name = "message", columnDefinition = "nvarchar2(200)")
     private String message;
 
     @ManyToOne
