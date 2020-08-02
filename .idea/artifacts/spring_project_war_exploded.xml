@@ -8,10 +8,8 @@
         </element>
         <element id="directory" name="lib">
           <element id="library" level="application" name="lib" />
-          <element id="library" level="project" name="lib" />
         </element>
       </element>
-      <element id="javaee-facet-resources" facet="spring_project/web/Web2" />
       <element id="javaee-facet-resources" facet="spring_project/web/Web" />
     </root>
   </artifact>
