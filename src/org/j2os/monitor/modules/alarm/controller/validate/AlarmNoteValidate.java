@@ -1,9 +1,9 @@
-package org.j2os.monitor.modules.device.controller.validate;
+package org.j2os.monitor.modules.alarm.controller.validate;
 
-import org.j2os.monitor.modules.utils.ValidateObject;
-import org.j2os.monitor.modules.device.model.entity.DeviceGroup;
-import org.j2os.monitor.modules.device.model.service.DeviceGroupService;
+import org.j2os.monitor.modules.alarm.model.entity.AlarmNote;
+import org.j2os.monitor.modules.alarm.model.service.AlarmNoteService;
 import org.j2os.monitor.modules.utils.Interfaces.validate.ValidateInterface;
+import org.j2os.monitor.modules.utils.ValidateObject;
 import org.j2os.monitor.modules.utils.annotation.ValidationAnnotation;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -11,125 +11,126 @@ import java.util.ArrayList;
 import java.util.List;
 
 @ValidationAnnotation
-public class DeviceGroupValidate implements ValidateInterface<DeviceGroup> {
-    private DeviceGroupService deviceGroupService;
+public class AlarmNoteValidate implements ValidateInterface<AlarmNote> {
+    private AlarmNoteService alarmNoteService;
 
     @Autowired
-    public DeviceGroupValidate(DeviceGroupService deviceGroupService) {
-        this.deviceGroupService = deviceGroupService;
+    public AlarmNoteValidate(AlarmNoteService alarmNoteService) {
+        this.alarmNoteService = alarmNoteService;
     }
 
     @Override
-    public ValidateObject addValidate(DeviceGroup deviceGroup) {
+    public ValidateObject addValidate(AlarmNote alarmNote) {
         ValidateObject validateObject = new ValidateObject();
         List<String> errorList = new ArrayList<>();
-        if (deviceGroup == null) {
+        if(alarmNote == null){
             errorList.add("Object is null");
-        } else {
-            if (deviceGroup.getName() == null || deviceGroup.getName().isEmpty()) {
-                errorList.add("Name is required");
+        }else{
+            if(alarmNote.getMessage() == null || alarmNote.getMessage().isEmpty()){
+                errorList.add("Message is required");
+            }
+            if(alarmNote.getDeviceProperty() == null || alarmNote.getDeviceProperty().getId() == 0){
+                errorList.add("DeviceProperty is required");
             }
         }
         validateObject.setFaultmessage(errorList);
-        if (errorList.size() > 0) {
+        if(errorList.size() >0){
             validateObject.setResult("error");
-        } else {
+        }else{
             validateObject.setResult("success");
         }
-        return validateObject;
+        return  validateObject;
     }
 
     @Override
-    public ValidateObject updateValidate(DeviceGroup deviceGroup) {
+    public ValidateObject updateValidate(AlarmNote alarmNote) {
         ValidateObject validateObject = new ValidateObject();
         List<String> errorList = new ArrayList<>();
-        if (deviceGroup == null || deviceGroup.getId() == 0) {
+        if(alarmNote == null){
             errorList.add("Object is null");
-        } else {
-            if (!this.deviceGroupService.existsById(deviceGroup.getId())) {
-                errorList.add("DeviceGroup not defined");
-            } else {
-                if (deviceGroup.getName() != null && deviceGroup.getName().isEmpty()) {
-                    errorList.add("Name is required");
-                }
+        }else{
+            if(alarmNote.getMessage() == null || alarmNote.getMessage().isEmpty()){
+                errorList.add("Message is required");
+            }
+            if(alarmNote.getDeviceProperty() == null || alarmNote.getDeviceProperty().getId() == 0){
+                errorList.add("DeviceProperty is required");
             }
         }
         validateObject.setFaultmessage(errorList);
-        if (errorList.size() > 0) {
+        if(errorList.size() >0){
             validateObject.setResult("error");
-        } else {
+        }else{
             validateObject.setResult("success");
         }
-        return validateObject;
+        return  validateObject;
     }
 
     @Override
     public ValidateObject findAllValidate() {
         ValidateObject validateObject = new ValidateObject();
         List<String> errorList = new ArrayList<>();
-
         validateObject.setFaultmessage(errorList);
-        if (errorList.size() > 0) {
+        if(errorList.size() >0){
             validateObject.setResult("error");
-        } else {
+        }else{
             validateObject.setResult("success");
         }
-        return validateObject;
+        return  validateObject;
     }
 
     @Override
-    public ValidateObject deleteValidate(DeviceGroup deviceGroup) {
+    public ValidateObject deleteValidate(AlarmNote alarmNote) {
         ValidateObject validateObject = new ValidateObject();
         List<String> errorList = new ArrayList<>();
-        if (deviceGroup == null) {
+        if(alarmNote == null){
             errorList.add("Object is null");
-        } else {
-            if (!this.deviceGroupService.existsById(deviceGroup.getId())) {
-                errorList.add("DeviceGroup not defined");
+        }else{
+            if(!this.alarmNoteService.existsById(alarmNote.getId())){
+                errorList.add("AlarmNote not defined");
             }
         }
         validateObject.setFaultmessage(errorList);
-        if (errorList.size() > 0) {
+        if(errorList.size() >0){
             validateObject.setResult("error");
-        } else {
+        }else{
             validateObject.setResult("success");
         }
-        return validateObject;
+        return  validateObject;
     }
 
     @Override
-    public ValidateObject findOneValidate(DeviceGroup deviceGroup) {
+    public ValidateObject findOneValidate(AlarmNote alarmNote) {
         ValidateObject validateObject = new ValidateObject();
         List<String> errorList = new ArrayList<>();
-        if (deviceGroup == null) {
+        if(alarmNote == null){
             errorList.add("Object is null");
-        } else {
-            if (!this.deviceGroupService.existsById(deviceGroup.getId())) {
-                errorList.add("Device not defined");
+        }else{
+            if(!this.alarmNoteService.existsById(alarmNote.getId())){
+                errorList.add("AlarmNote not defined");
             }
         }
         validateObject.setFaultmessage(errorList);
-        if (errorList.size() > 0) {
+        if(errorList.size() >0){
             validateObject.setResult("error");
-        } else {
+        }else{
             validateObject.setResult("success");
         }
-        return validateObject;
+        return  validateObject;
     }
 
     @Override
     public ValidateObject findByIdValidate(long id) {
         ValidateObject validateObject = new ValidateObject();
         List<String> errorList = new ArrayList<>();
-        if (!this.deviceGroupService.existsById(id)) {
-            errorList.add("DeviceGroup not defined");
+        if(!this.alarmNoteService.existsById(id)){
+            errorList.add("AlarmNote not defined");
         }
         validateObject.setFaultmessage(errorList);
-        if (errorList.size() > 0) {
+        if(errorList.size() >0){
             validateObject.setResult("error");
-        } else {
+        }else{
             validateObject.setResult("success");
         }
-        return validateObject;
+        return  validateObject;
     }
 }

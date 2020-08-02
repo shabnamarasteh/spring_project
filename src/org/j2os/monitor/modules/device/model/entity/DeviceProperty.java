@@ -8,8 +8,9 @@ import java.time.LocalDateTime;
 @Entity
 public class DeviceProperty implements Serializable {
     @Id
-    @SequenceGenerator(name = "devicPropertySeq",sequenceName = "deviceproperty_seq",allocationSize = 1,initialValue = 1)
-    @GeneratedValue(strategy = GenerationType.AUTO,generator = "devicPropertySeq")
+    @Column(name = "id", columnDefinition = "number")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "devic_property_seq")
+    @SequenceGenerator(name = "devic_property_seq", sequenceName = "devic_property_seq", allocationSize = 1)
     private Long id;
 
     @OneToOne
@@ -20,11 +21,30 @@ public class DeviceProperty implements Serializable {
     @JoinColumn(name = "device_id")
     private Device device;
 
-    @Column(name = "date_time" , columnDefinition = "number")
-    private Double value;
+    @Column(name = "threshold", columnDefinition = "number(10,2)")
+    private Double threshold;
 
-    @Column(name = "date_time")
-    private LocalDateTime dateTime;
+    @Column(name = "creation_at", updatable = false)
+    private LocalDateTime createdAt;
+
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
+
+    @Column(name = "creation_by", updatable = false)
+    private LocalDateTime createdBy;
+
+    @Column(name = "updated_by")
+    private LocalDateTime updatedBy;
+
+    @PrePersist
+    protected void onCreatedAt() {
+        createdAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdatedAt() {
+        updatedAt = LocalDateTime.now();
+    }
 
     public DeviceProperty() {
     }
@@ -54,18 +74,50 @@ public class DeviceProperty implements Serializable {
     }
 
     public Double getValue() {
-        return value;
+        return threshold;
     }
 
-    public void setValue(Double value) {
-        this.value = value;
+    public void setValue(Double threshold) {
+        this.threshold = threshold;
     }
 
-    public LocalDateTime getDateTime() {
-        return dateTime;
+    public Double getThreshold() {
+        return threshold;
     }
 
-    public void setDateTime(LocalDateTime dateTime) {
-        this.dateTime = dateTime;
+    public void setThreshold(Double threshold) {
+        this.threshold = threshold;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public LocalDateTime getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(LocalDateTime createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public LocalDateTime getUpdatedBy() {
+        return updatedBy;
+    }
+
+    public void setUpdatedBy(LocalDateTime updatedBy) {
+        this.updatedBy = updatedBy;
     }
 }

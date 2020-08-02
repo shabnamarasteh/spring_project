@@ -1,7 +1,7 @@
-package org.j2os.monitor.modules.admin.model.service;
+package org.j2os.monitor.modules.owner.model.service;
 
-import org.j2os.monitor.modules.admin.model.entity.OwnerDevice;
-import org.j2os.monitor.modules.admin.model.repository.OwnerDeviceRepository;
+import org.j2os.monitor.modules.owner.model.entity.OwnerDevice;
+import org.j2os.monitor.modules.owner.model.repository.OwnerDeviceRepository;
 import org.j2os.monitor.modules.utils.Interfaces.service.ServiceInterface;
 import org.j2os.monitor.modules.utils.MyBeanCopy;
 import org.springframework.beans.factory.annotation.Autowired;

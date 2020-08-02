@@ -1,6 +1,6 @@
 package org.j2os.monitor.modules.utils.Interfaces.validate;
 
-import org.j2os.monitor.modules.common.model.entity.ValidateObject;
+import org.j2os.monitor.modules.utils.ValidateObject;
 
 public interface ValidateInterface<T> {
     ValidateObject addValidate(T t);

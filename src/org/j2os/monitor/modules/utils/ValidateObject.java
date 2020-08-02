@@ -1,4 +1,4 @@
-package org.j2os.monitor.modules.common.model.entity;
+package org.j2os.monitor.modules.utils;
 
 import org.springframework.stereotype.Component;
 

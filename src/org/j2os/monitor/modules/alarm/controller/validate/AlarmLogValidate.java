@@ -1,9 +1,9 @@
-package org.j2os.monitor.modules.admin.controller.validate;
+package org.j2os.monitor.modules.alarm.controller.validate;
 
-import org.j2os.monitor.modules.admin.model.entity.OwnerDevice;
-import org.j2os.monitor.modules.admin.model.service.OwnerDeviceService;
-import org.j2os.monitor.modules.common.model.entity.ValidateObject;
+import org.j2os.monitor.modules.alarm.model.entity.AlarmLog;
+import org.j2os.monitor.modules.alarm.model.service.AlarmLogService;
 import org.j2os.monitor.modules.utils.Interfaces.validate.ValidateInterface;
+import org.j2os.monitor.modules.utils.ValidateObject;
 import org.j2os.monitor.modules.utils.annotation.ValidationAnnotation;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -11,29 +11,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 @ValidationAnnotation
-public class OwnerDeviceValidate  implements ValidateInterface<OwnerDevice> {
-    private OwnerDeviceService ownerDeviceService;
+public class AlarmLogValidate implements ValidateInterface<AlarmLog> {
+    private AlarmLogService alarmLogService;
 
     @Autowired
-    public OwnerDeviceValidate(OwnerDeviceService ownerDeviceService) {
-        this.ownerDeviceService = ownerDeviceService;
+    public AlarmLogValidate(AlarmLogService alarmLogService) {
+        this.alarmLogService = alarmLogService;
     }
 
     @Override
-    public ValidateObject addValidate(OwnerDevice ownerDevice) {
+    public ValidateObject addValidate(AlarmLog alarmLog) {
         ValidateObject validateObject = new ValidateObject();
         List<String> errorList = new ArrayList<>();
-        if(ownerDevice == null){
+        if(alarmLog == null){
             errorList.add("Object is null");
         }else{
-            if(ownerDevice.getFirstname() == null || ownerDevice.getFirstname().isEmpty()){
-                errorList.add("FirstName is required");
+            if(alarmLog.getMessage() == null || alarmLog.getMessage().isEmpty()){
+                errorList.add("Message is required");
             }
-            if(ownerDevice.getLastname() == null || ownerDevice.getLastname().isEmpty()){
-                errorList.add("Lastname is required");
+            if(alarmLog.getAdmin() == null || alarmLog.getAdmin().getId() == 0){
+                errorList.add("Admin is required");
             }
-            if(ownerDevice.getMobilenumber() == null || ownerDevice.getMobilenumber().isEmpty()){
-                errorList.add("Mobilenumber is required");
+            if(alarmLog.getAlarm_note_id() == null || alarmLog.getAlarm_note_id().getId() == 0){
+                errorList.add("Alarm_note_id is required");
             }
         }
         validateObject.setFaultmessage(errorList);
@@ -46,20 +46,20 @@ public class OwnerDeviceValidate  implements ValidateInterface<OwnerDevice> {
     }
 
     @Override
-    public ValidateObject updateValidate(OwnerDevice ownerDevice) {
+    public ValidateObject updateValidate(AlarmLog alarmLog) {
         ValidateObject validateObject = new ValidateObject();
         List<String> errorList = new ArrayList<>();
-        if(ownerDevice == null){
+        if(alarmLog == null){
             errorList.add("Object is null");
         }else{
-            if(ownerDevice.getFirstname() == null || ownerDevice.getFirstname().isEmpty()){
-                errorList.add("FirstName is required");
+            if(alarmLog.getMessage() == null || alarmLog.getMessage().isEmpty()){
+                errorList.add("Message is required");
             }
-            if(ownerDevice.getLastname() == null || ownerDevice.getLastname().isEmpty()){
-                errorList.add("Lastname is required");
+            if(alarmLog.getAdmin() == null || alarmLog.getAdmin().getId() == 0){
+                errorList.add("Admin is required");
             }
-            if(ownerDevice.getMobilenumber() == null || ownerDevice.getMobilenumber().isEmpty()){
-                errorList.add("Mobilenumber is required");
+            if(alarmLog.getAlarm_note_id() == null || alarmLog.getAlarm_note_id().getId() == 0){
+                errorList.add("Alarm_note_id is required");
             }
         }
         validateObject.setFaultmessage(errorList);
@@ -85,14 +85,14 @@ public class OwnerDeviceValidate  implements ValidateInterface<OwnerDevice> {
     }
 
     @Override
-    public ValidateObject deleteValidate(OwnerDevice ownerDevice) {
+    public ValidateObject deleteValidate(AlarmLog alarmLog) {
         ValidateObject validateObject = new ValidateObject();
         List<String> errorList = new ArrayList<>();
-        if(ownerDevice == null){
+        if(alarmLog == null){
             errorList.add("Object is null");
         }else{
-            if(!this.ownerDeviceService.existsById(ownerDevice.getOwnerId())){
-                errorList.add("OwnerDevice not defined");
+            if(!this.alarmLogService.existsById(alarmLog.getAlarmLogId())){
+                errorList.add("AlarmLog not defined");
             }
         }
         validateObject.setFaultmessage(errorList);
@@ -105,14 +105,14 @@ public class OwnerDeviceValidate  implements ValidateInterface<OwnerDevice> {
     }
 
     @Override
-    public ValidateObject findOneValidate(OwnerDevice ownerDevice) {
+    public ValidateObject findOneValidate(AlarmLog alarmLog) {
         ValidateObject validateObject = new ValidateObject();
         List<String> errorList = new ArrayList<>();
-        if(ownerDevice == null){
+        if(alarmLog == null){
             errorList.add("Object is null");
         }else{
-            if(!this.ownerDeviceService.existsById(ownerDevice.getOwnerId())){
-                errorList.add("OwnerDevice not defined");
+            if(!this.alarmLogService.existsById(alarmLog.getAlarmLogId())){
+                errorList.add("AlarmLog not defined");
             }
         }
         validateObject.setFaultmessage(errorList);
@@ -128,8 +128,8 @@ public class OwnerDeviceValidate  implements ValidateInterface<OwnerDevice> {
     public ValidateObject findByIdValidate(long id) {
         ValidateObject validateObject = new ValidateObject();
         List<String> errorList = new ArrayList<>();
-        if(!this.ownerDeviceService.existsById(id)){
-            errorList.add("OwnerDevice not defined");
+        if(!this.alarmLogService.existsById(id)){
+            errorList.add("AlarmLog not defined");
         }
         validateObject.setFaultmessage(errorList);
         if(errorList.size() >0){
