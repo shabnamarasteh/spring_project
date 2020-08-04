@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component
+//@Component
 public class ValidateObject {
     private List data;
     private String result;
