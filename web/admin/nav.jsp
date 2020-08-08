@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: shabnamPC
-  Date: 8/2/2020
-  Time: 8:55 AM
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="container body">
     <div class="main_container">
@@ -12,7 +6,7 @@
             <div class="left_col scroll-view">
 
                 <div class="navbar nav_title" style="border: 0;">
-                    <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>{{ __('lang.title')}}</span></a>
+                    <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>lang.title</span></a>
                 </div>
 
                 <div class="clearfix"></div>
@@ -20,10 +14,10 @@
                 <!-- menu profile quick info -->
                 <div class="profile clearfix">
                     <div class="profile_pic">
-                        <img src="{{asset('image/img.jpg')}}" alt="..." class="img-circle profile_img">
+                        <img src="{{asset('image/img.jpg" alt="..." class="img-circle profile_img">
                     </div>
                     <div class="profile_info">
-                        <span>{{ __('lang.welcome')}}</span>
+                        <span>lang.welcome</span>
                         <h2>مرتضی کریمی</h2>
                     </div>
                 </div>
@@ -34,42 +28,42 @@
                 <!-- sidebar menu -->
                 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                     <div class="menu_section">
-                        <h3>{{ __('lang.common')}}</h3>
+                        <h3>lang.common</h3>
                         <ul class="nav side-menu">
-                            <li><a href="/admin/"><i class="fa fa-home"></i> {{ __('lang.dashboard')}}</a>
+                            <li><a href="/admin/"><i class="fa fa-home"></i> lang.dashboard</a>
 
                             </li>
-                            <li><a><i class="fa fa-users"></i> {{ __('lang.admins.resellers')}}  <span class="fa fa-chevron-down"></span></a>
+                            <li><a><i class="fa fa-users"></i> lang.admins.resellers  <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="/admin/resellers/"> {{ __('lang.admins.resellers')}} </a></li>
-                                    <li><a href="/admin/admins">{{ __('lang.admins.admins')}} </a></li>
+                                    <li><a href="/admin/resellers/"> lang.admins.resellers </a></li>
+                                    <li><a href="/admin/admins">lang.admins.admins </a></li>
                                 </ul>
                             </li>
-                            <li><a><i class="fa fa-desktop"></i> {{ __('lang.orders.title')}}
+                            <li><a><i class="fa fa-list"></i> lang.orders.title
                                 <span class="fa fa-chevron-down"></span>
                             </a>
                                 <ul class="nav child_menu">
-                                    <li><a href="/admin/orders/"> {{ __('lang.orders.title')}} </a></li>
+                                    <li><a href="/admin/orders/"> lang.orders.title </a></li>
 
                                 </ul>
                             </li>
-                            <li><a><i class="fa fa-money"></i> {{ __('lang.transactions.title')}} <span class="fa fa-chevron-down"></span></a>
+                            <li><a><i class="fa fa-money"></i> lang.transactions.title <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="/admin/invoices"> {{ __('lang.transactions.invoices')}} </a></li>
+                                    <li><a href="/admin/invoices"> lang.transactions.invoices </a></li>
                                 </ul>
                             </li>
-                            <li><a><i class="fa fa-bar-chart-o"></i> {{ __('lang.products.title')}} <span class="fa fa-chevron-down"></span></a>
+                            <li><a><i class="fa fa-bar-chart-o"></i> lang.products.title <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="/admin/brands">{{ __('lang.brands.title')}} </a></li>
-                                    <li><a href="/admin/product"> {{ __('lang.products.title')}}</a></li>
-                                    <li><a href="/admin/attribute"> {{ __('lang.products.attribute')}}</a></li>
-                                    <li><a href="/admin/promotion"> {{ __('lang.promotion.title')}}</a></li>
+                                    <li><a href="/admin/brands">lang.brands.title </a></li>
+                                    <li><a href="/admin/product"> lang.products.title</a></li>
+                                    <li><a href="/admin/attribute"> lang.products.attribute</a></li>
+                                    <li><a href="/admin/promotion"> lang.promotion.title</a></li>
                                 </ul>
                             </li>
-                            <li><a><i class="fa fa-cogs"></i> {{ __('lang.configs.title')}} <span class="fa fa-chevron-down"></span></a>
+                            <li><a><i class="fa fa-cogs"></i> lang.configs.title <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="/admin/fixed_sidebar"> {{ __('lang.configs.all')}} </a></li>
-                                    <li><a href="/admin/fixed_footer"> {{ __('lang.configs.template')}} </a></li>
+                                    <li><a href="/admin/fixed_sidebar"> lang.configs.all </a></li>
+                                    <li><a href="/admin/fixed_footer"> lang.configs.template </a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -80,16 +74,16 @@
 
                 <!-- /menu footer buttons -->
                 <div class="sidebar-footer hidden-small">
-                    <a data-toggle="tooltip" data-placement="top" title="{{ __('lang.configs.title')}}">
+                    <a data-toggle="tooltip" data-placement="top" title="lang.configs.title">
                         <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                     </a>
-                    <a data-toggle="tooltip" data-placement="top" title="{{ __('lang.configs.fullScreen')}}" onclick="toggleFullScreen();">
+                    <a data-toggle="tooltip" data-placement="top" title="lang.configs.fullScreen" onclick="toggleFullScreen();">
                         <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
                     </a>
-                    <a data-toggle="tooltip" data-placement="top" title="{{ __('lang.configs.lock')}}" class="lock_btn">
+                    <a data-toggle="tooltip" data-placement="top" title="lang.configs.lock" class="lock_btn">
                         <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
                     </a>
-                    <a data-toggle="tooltip" data-placement="top" title="{{ __('lang.logout')}}" href="login.html">
+                    <a data-toggle="tooltip" data-placement="top" title="lang.logout" href="login.html">
                         <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                     </a>
                 </div>
@@ -198,3 +192,8 @@
                 </nav>
             </div>
         </div>
+        <!-- /top navigation -->
+        <!-- /header content -->
+
+        <!-- page content -->
+
