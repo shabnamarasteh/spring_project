@@ -6,7 +6,7 @@
             <div class="left_col scroll-view">
 
                 <div class="navbar nav_title" style="border: 0;">
-                    <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>lang.title</span></a>
+                    <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>مدیریت سرور</span></a>
                 </div>
 
                 <div class="clearfix"></div>
@@ -17,8 +17,8 @@
                         <img src="{{asset('image/img.jpg" alt="..." class="img-circle profile_img">
                     </div>
                     <div class="profile_info">
-                        <span>lang.welcome</span>
-                        <h2>مرتضی کریمی</h2>
+                        <span>خوش آمدید</span>
+<%--                        <h2>مرتضی کریمی</h2>--%>
                     </div>
                 </div>
                 <!-- /menu profile quick info -->
@@ -28,44 +28,38 @@
                 <!-- sidebar menu -->
                 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                     <div class="menu_section">
-                        <h3>lang.common</h3>
+<%--                        <h3>دستگاه ها</h3>--%>
                         <ul class="nav side-menu">
-                            <li><a href="/admin/"><i class="fa fa-home"></i> lang.dashboard</a>
+                            <li><a href="/admin/"><i class="fa fa-home"></i> صفحه اصلی</a>
 
                             </li>
-                            <li><a><i class="fa fa-users"></i> lang.admins.resellers  <span class="fa fa-chevron-down"></span></a>
+                            <li><a><i class="fa fa-users"></i> کاربران <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="/admin/resellers/"> lang.admins.resellers </a></li>
-                                    <li><a href="/admin/admins">lang.admins.admins </a></li>
+                                    <li><a href="/admin/admins/">مدیران سیستم </a></li>
+                                    <li><a href="/admin/owners/">صاحبان دستگاه </a></li>
                                 </ul>
                             </li>
-                            <li><a><i class="fa fa-list"></i> lang.orders.title
-                                <span class="fa fa-chevron-down"></span>
-                            </a>
-                                <ul class="nav child_menu">
-                                    <li><a href="/admin/orders/"> lang.orders.title </a></li>
 
-                                </ul>
-                            </li>
-                            <li><a><i class="fa fa-money"></i> lang.transactions.title <span class="fa fa-chevron-down"></span></a>
+                            <li><a><i class="fa fa-money"></i> دستگاه ها <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="/admin/invoices"> lang.transactions.invoices </a></li>
+                                    <li><a href="/admin/datacenter"> دیتاسنترها </a></li>
+                                    <li><a href="/admin/devicemodel"> مدل دستگاه </a></li>
+                                    <li><a href="/admin/rack">رک ها </a></li>
+                                    <li><a href="/admin/device">دستگاه ها </a></li>
                                 </ul>
                             </li>
-                            <li><a><i class="fa fa-bar-chart-o"></i> lang.products.title <span class="fa fa-chevron-down"></span></a>
+                            <li><a><i class="fa fa-bar-chart-o"></i> گزارشات <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="/admin/brands">lang.brands.title </a></li>
-                                    <li><a href="/admin/product"> lang.products.title</a></li>
-                                    <li><a href="/admin/attribute"> lang.products.attribute</a></li>
-                                    <li><a href="/admin/promotion"> lang.promotion.title</a></li>
+                                    <li><a href="/admin/alarms">گزارش دستگاه ها</a></li>
                                 </ul>
                             </li>
-                            <li><a><i class="fa fa-cogs"></i> lang.configs.title <span class="fa fa-chevron-down"></span></a>
+                            <li><a><i class="fa fa-bar-chart-o"></i> تنظیمات سیستم <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="/admin/fixed_sidebar"> lang.configs.all </a></li>
-                                    <li><a href="/admin/fixed_footer"> lang.configs.template </a></li>
+                                    <li><a href="/admin/alarms">هشدار</a></li>
+                                    <li><a href="/admin/config">تنظیمات کلی</a></li>
                                 </ul>
                             </li>
+
                         </ul>
                     </div>
 
