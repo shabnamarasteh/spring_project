@@ -7,20 +7,20 @@
 --%>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<script src="../assets/vendors/jquery/dist/jquery.min.js"></script>
+<script src="../../assets/vendors/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap -->
-<script src="../assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../../assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- FastClick -->
-<script src="../assets/vendors/fastclick/lib/fastclick.js"></script>
+<script src="../../assets/vendors/fastclick/lib/fastclick.js"></script>
 <!-- NProgress -->
-<script src="../assets/vendors/nprogress/nprogress.js"></script>
+<script src="../../assets/vendors/nprogress/nprogress.js"></script>
 <!-- bootstrap-progressbar -->
-<script src="../assets/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<script src="../../assets/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
 <!-- iCheck -->
-<script src="../assets/vendors/iCheck/icheck.min.js"></script>
+<script src="../../assets/vendors/iCheck/icheck.min.js"></script>
 
 <!-- bootstrap-daterangepicker -->
-<script src="../assets/vendors/moment/min/moment.min.js"></script>
+<script src="../../assets/vendors/moment/min/moment.min.js"></script>
 
 <script src="/assets/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
 

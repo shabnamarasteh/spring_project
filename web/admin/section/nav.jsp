@@ -30,7 +30,7 @@
                     <div class="menu_section">
 <%--                        <h3>دستگاه ها</h3>--%>
                         <ul class="nav side-menu">
-                            <li><a href="/admin/"><i class="fa fa-home"></i> صفحه اصلی</a>
+                            <li><a href="/admin"><i class="fa fa-home"></i> صفحه اصلی</a>
 
                             </li>
                             <li><a><i class="fa fa-users"></i> کاربران <span class="fa fa-chevron-down"></span></a>

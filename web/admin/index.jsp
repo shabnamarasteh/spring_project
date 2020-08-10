@@ -10,12 +10,12 @@
 
 <head>
 
-    <jsp:include page="header.jsp"/>
-    <title>INDEX</title>
+    <jsp:include page="section/header.jsp"/>
+    <title>صفحه اصلی</title>
 </head>
 <body class="nav-md">
 
-<jsp:include page="nav.jsp"/>
+<jsp:include page="section/nav.jsp"/>
 
 <div class="right_col" role="main">
     <!-- top tiles -->
@@ -774,6 +774,6 @@
 <%--</div>--%>
 <%--</div>--%>
 
-<jsp:include page="footer.jsp"/>
+<jsp:include page="section/footer.jsp"/>
 </body>
 </html>
