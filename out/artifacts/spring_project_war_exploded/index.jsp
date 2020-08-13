@@ -4,6 +4,10 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+  <%
+    response.sendRedirect("admin/index.jsp");
+
+    
+  %>
   </body>
 </html>
