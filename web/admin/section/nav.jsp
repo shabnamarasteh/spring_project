@@ -35,7 +35,7 @@
                             </li>
                             <li><a><i class="fa fa-users"></i> کاربران <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="/admin/admins/">مدیران سیستم </a></li>
+                                    <li><a href="/admin/index.do">مدیران سیستم </a></li>
                                     <li><a href="/admin/owners/">صاحبان دستگاه </a></li>
                                 </ul>
                             </li>
