@@ -5,6 +5,7 @@ import org.j2os.monitor.modules.device.model.repository.DeviceGroupRepository;
 import org.j2os.monitor.modules.utils.Interfaces.service.ServiceInterface;
 import org.j2os.monitor.modules.utils.MyBeanCopy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,6 +13,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 @Service
+@Qualifier("deviceGroupService")
 public class DeviceGroupService implements ServiceInterface<DeviceGroup> {
     private DeviceGroupRepository deviceGroupRepository;
 

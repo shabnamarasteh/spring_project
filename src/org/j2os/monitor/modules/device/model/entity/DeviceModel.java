@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Table(name = "device_model")
-@Entity
+@Entity(name = "device_model")
 public class DeviceModel {
     @Id
     @Column(name = "id", columnDefinition = "number")
@@ -51,6 +51,12 @@ public class DeviceModel {
     }
 
     public DeviceModel() {
+    }
+
+    public DeviceModel(String id) {
+        if (id != null) {
+            this.id = Long.parseLong(id);
+        }
     }
 
     public DeviceModel(String name, String model, String description, long max_unit, String cover) {

@@ -1,11 +1,6 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: hedi
-  Date: 8/10/2020
-  Time: 7:53 PM
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 
 <head>
@@ -31,9 +26,11 @@
                         <div role="tabpanel" class="tab-pane fade active in" id="tab_content11" aria-labelledby="home-tab">
                             <div class="x_content">
                                 <br/>
-                                <form class="form-horizontal form-label-left input_mask">
+                                <form:form class="form-horizontal form-label-left input_mask"
+                                           method="post" action="/admin/deviceGroup/save.do" modelAttribute="deviceGroup">
+
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control" id="deviceGroup_name" name="deviceGroup_name" placeholder="نام گروه دستگاه">
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="نام گروه دستگاه">
                                         <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
 
                                     </div>
@@ -53,7 +50,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </form>
+                                </form:form>
                             </div>
                         </div>
                     </div>

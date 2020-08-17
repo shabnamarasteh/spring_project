@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Table(name = "device_group")
-@Entity
+@Entity(name = "device_group")
 public class DeviceGroup {
     @Id
     @Column(name = "id", columnDefinition = "number")

@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Table(name = "device_property")
-@Entity
+@Entity(name = "device_property")
 public class DeviceProperty implements Serializable {
     @Id
     @Column(name = "id", columnDefinition = "number")

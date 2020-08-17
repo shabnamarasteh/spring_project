@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Entity
+@Entity(name="role")
 @Table(name = "role")
 public class Role {
     @Id
@@ -45,6 +45,12 @@ public class Role {
     }
 
     public Role() {
+    }
+
+    public Role(String id) {
+        if(id != null){
+            this.id = Long.parseLong(id);
+        }
     }
 
     public Role(String name, String description, Integer isManager) {

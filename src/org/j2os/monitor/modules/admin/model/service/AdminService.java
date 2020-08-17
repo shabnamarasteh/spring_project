@@ -26,6 +26,7 @@ public class AdminService implements ServiceInterface<Admin> {
     @Override
     @Transactional
     public void add(Admin admin) {
+        System.out.println(admin.getLastName()+"-------------"+admin.getRoleId());
         this.adminRepository.save(admin);
     }
 

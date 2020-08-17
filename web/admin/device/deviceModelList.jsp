@@ -3,7 +3,6 @@
 <html>
 
 <head>
-
     <jsp:include page="../section/header.jsp"/>
     <title>صفحه اصلی</title>
 </head>
@@ -16,15 +15,16 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_content">
                 <div class="table-responsive">
-                    <a href="/admin/admin/create.do" class="btn btn-primary">ایجاد</a>
+                    <a href="/admin/deviceModel/create.do" class="btn btn-primary">ایجاد</a>
                     <table class="table table-striped jambo_table bulk_action">
                         <thead>
                         <tr class="headings">
                             <th class="column-title">شناسه</th>
                             <th class="column-title">نام</th>
-                            <th class="column-title">نام خانوادگی</th>
-                            <th class="column-title">پست الکترونیک</th>
-                            <th class="column-title">نام نقش</th>
+                            <th class="column-title">مدل</th>
+                            <th class="column-title">توضیحات</th>
+                            <th class="column-title">حداکثر واحد</th>
+                            <th class="column-title">کاور</th>
                             <th class="column-title"></th>
                             <th class="column-title"></th>
 
@@ -36,10 +36,11 @@
                         <c:forEach items="${items}" var="item">
                             <tr>
                                 <td>${item.id}</td>
-                                <td>${item.firstName}</td>
-                                <td>${item.lastName}</td>
-                                <td>${item.email}</td>
-                                <td>${item.roleId.name} </td>
+                                <td>${item.name}</td>
+                                <td>${item.model}</td>
+                                <td>${item.description}</td>
+                                <td>${item.max_unit} </td>
+                                <td>${item.cover} </td>
 
                             </tr>
                         </c:forEach>
