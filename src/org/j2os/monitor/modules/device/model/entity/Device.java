@@ -5,7 +5,7 @@ import org.j2os.monitor.modules.owner.model.entity.OwnerDevice;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity
+@Entity(name = "device")
 @Table(name = "device")
 public class Device {
     @Id

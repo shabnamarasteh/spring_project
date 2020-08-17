@@ -20,13 +20,13 @@
     <!-- SpringTransaction-->
     <bean id="entityManagerFactoryBean" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="packagesToScan" value="org.j2os.monitor.modules"/>
+        <property name="packagesToScan" value="org.j2os.monitor"/>
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
         </property>
         <property name="jpaProperties">
             <props>
-                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.hbm2ddl.auto">create-drop</prop>
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
             </props>
