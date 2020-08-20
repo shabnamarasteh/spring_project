@@ -26,10 +26,11 @@
                         <div role="tabpanel" class="tab-pane fade active in" id="tab_content11" aria-labelledby="home-tab">
                             <div class="x_content">
                                 <br/>
-                                <form:form method="post" action="/admin/deviceGroup/save.do" modelAttribute="deviceGroup">
+                                <form:form method="put" action="/admin/deviceGroup/update.do" modelAttribute="devGroup">
+                                    <input type="hidden" name="deviceGroupId" value="${devGroup.deviceGroupId}" />
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                         <input type="text" class="form-control" id="name" name="name" placeholder="نام گروه دستگاه"
-                                               value="${deviceGroup.name}">
+                                               value="${devGroup.name}">
 
                                         <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
 
@@ -38,7 +39,7 @@
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                         <textarea type="text" class="form-control has-feedback-left" id="description"
                                                   name="description"
-                                               placeholder="توضیحات" >${deviceGroup.description}
+                                                  placeholder="توضیحات" >${devGroup.description}
                                         </textarea>
                                         <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
                                     </div>

@@ -1,5 +1,5 @@
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 
@@ -19,51 +19,49 @@
                 <div class="" role="tabpanel" data-example-id="togglable-tabs">
                     <ul id="myTab1" class="nav nav-tabs bar_tabs" role="tablist">
                         <li role="presentation" class="active">
-                            <a href="#tab_content11" id="home-tabb"  role="tab" data-toggle="tab" aria-controls="home"
-                               aria-expanded="true">جدید</a>
+                            <a href="#tab_content11" id="home-tabb"  role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">ایجاد مدیریت جدید</a>
                         </li>
                     </ul>
                     <div id="myTabContent2" class="tab-content">
                         <div role="tabpanel" class="tab-pane fade active in" id="tab_content11" aria-labelledby="home-tab">
                             <div class="x_content">
                                 <br/>
-                                    <form:form method="post" action="/admin/admin/save.do"
-                                               modelAttribute="admin">
+                                <form:form class="form-horizontal form-label-left input_mask"
+                                           method="put" action="/admin/deviceModel/update.do" modelAttribute="deviceModel">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control has-feedback-left" name="firstName"
-                                               id="firstName" placeholder="نام" value="${admin.firstName}">
-                                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                        <input type="hidden" name="id" value="${deviceModel.id}" />
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="نام"
+                                               value="${deviceModel.name}">
+                                        <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
+
                                     </div>
+
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control" id="lastName" name="lastName"
-                                               value="${admin.lastName}" placeholder="نام خانوادگی">
-                                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control has-feedback-left"
-                                               id="email" name="email" value="${admin.email}" placeholder="ایمیل">
-                                        <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="password" class="form-control" id="password" name="password"
-                                               value="${admin.password}" placeholder="رمزعبور">
+                                        <input type="text" class="form-control" id="model" name="model" placeholder="مدل"
+                                               value="${deviceModel.model}">
                                         <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                                     </div>
+
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="password" class="form-control" id="confirmPassword"
-                                               value="${admin.password}" name="confirmPassword" placeholder="تکرار رمزعبور">
+                                        <textarea type="text" class="form-control" id="description" placeholder="توضیحات" name="description" >
+                                            ${deviceModel.id}
+                                        </textarea>
                                         <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                                     </div>
-<%--                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">--%>
-<%--                                        <div class="checkbox">--%>
-<%--                                            <label class=""> نقش ها--%>
-<%--                                                <select name="roleId">--%>
-<%--                                                    <c:forEach items="${roles}" var="role">--%>
-<%--                                                        <option value="${role.id}">${role.name}</option>--%>
-<%--                                                    </c:forEach>--%>
-<%--                                                </select>--%>
-<%--                                            </label>--%>
-<%--                                        </div>--%>
+
+                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                        <input type="text" class="form-control" id="max_unit" name="max_unit" placeholder="حداکثر واحد"
+                                               value="${deviceModel.max_unit}">
+                                        <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
+                                    </div>
+
+                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                        <input type="text" class="form-control" id="cover" name="cover" placeholder="کاور" value="${deviceModel.cover}">
+                                        <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
+                                    </div>
+
+
+                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                         <div class="form-group">
                                             <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
                                                 <button type="submit" class="btn btn-primary">انصراف</button>

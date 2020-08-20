@@ -28,35 +28,48 @@
                              aria-labelledby="home-tab">
                             <div class="x_content">
                                 <br/>
-                                <form:form class="form-horizontal form-label-left input_mask" method="post"
-                                      action="/owner/save.do"
-                                      modelAttribute="owner">
+                                <form:form class="form-horizontal form-label-left input_mask" method="put"
+                                           modelattribute="deviceProperty"
+                                           action="/admin/deviceModelProperty/update.do">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control has-feedback-left" name="firstName"
-                                               id="firstName" placeholder="نام" value="${owner.firstName}">
-                                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control" id="lastName" name="lastName"
-                                               placeholder="نام خانوادگی" value="${owner.lastName}">
-                                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                        <input type="hidden" value="${deviceProperty.id}" name="id"/>
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="نام"
+                                               value="${deviceProperty.name}">
+                                        <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
+
                                     </div>
 
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control" id="phoneNumber" name="phoneNumber"
-                                               placeholder="تلفن" value="${owner.phoneNumber}">
+                                        مدل دستگاه
+                                        <select name="deviceModel">
+                                            <c:forEach items="${deviceModels}" var="device">
+                                                <option value="${device.id}"
+                                                    ${device.id == deviceProperty.deviceModel.id ? 'selected="selected"' : ''}
+                                                >${device.name}</option>
+                                            </c:forEach>
+                                        </select>
                                         <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                                     </div>
+
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control" id="mobileNumber" name="mobileNumber"
-                                               placeholder="تلفن همراه" value="${owner.mobileNumber}">
+                                        <input type="text" class="form-control" id="url" name="url" placeholder="آدرس "
+                                        value="${deviceProperty.url}">
                                         <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                                     </div>
+
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control" id="address" name="address"
-                                               placeholder="آدرس"  value="${owner.address}">
+                                        <input type="text" class="form-control" id="type" name="type" placeholder="نوع"
+                                               value="${deviceProperty.type}">
                                         <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                                     </div>
+
+                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                        <input type="text" class="form-control" id="threshold" name="threshold"
+                                               placeholder="threshold" value="${deviceProperty.threshold}">
+                                        <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
+                                    </div>
+
+
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                         <div class="form-group">
                                             <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">

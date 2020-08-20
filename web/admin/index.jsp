@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: amirs
-  Date: 2/7/2020
-  Time: 6:18 PM
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 
@@ -22,7 +16,6 @@
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
             <span class="count_top"><i class="fa fa-user"></i> تعداد کاربران</span>
             <div class="count">2500</div>
-            <a href="/admin/index.do">454545454</a>
             <span class="count_bottom"><i class="green">4% </i> از هفته گذشته</span>
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">

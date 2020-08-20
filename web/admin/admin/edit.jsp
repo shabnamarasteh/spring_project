@@ -20,16 +20,17 @@
                     <ul id="myTab1" class="nav nav-tabs bar_tabs" role="tablist">
                         <li role="presentation" class="active">
                             <a href="#tab_content11" id="home-tabb"  role="tab" data-toggle="tab" aria-controls="home"
-                               aria-expanded="true">جدید</a>
+                               aria-expanded="true">ایجاد مدیریت جدید</a>
                         </li>
                     </ul>
                     <div id="myTabContent2" class="tab-content">
                         <div role="tabpanel" class="tab-pane fade active in" id="tab_content11" aria-labelledby="home-tab">
                             <div class="x_content">
                                 <br/>
-                                    <form:form method="post" action="/admin/admin/save.do"
-                                               modelAttribute="admin">
+                                <form:form method="put" action="/admin/admin/update.do"
+                                           modelAttribute="admin">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                        <input type="hidden" name="id" value="${admin.id}" />
                                         <input type="text" class="form-control has-feedback-left" name="firstName"
                                                id="firstName" placeholder="نام" value="${admin.firstName}">
                                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
@@ -59,12 +60,14 @@
 <%--                                            <label class=""> نقش ها--%>
 <%--                                                <select name="roleId">--%>
 <%--                                                    <c:forEach items="${roles}" var="role">--%>
-<%--                                                        <option value="${role.id}">${role.name}</option>--%>
+<%--                                                        <option value="${role.id}"--%>
+<%--                                                            ${role.id == admin.roleId.id ? 'selected="selected"' : ''}--%>
+<%--                                                        >${role.name}</option>--%>
 <%--                                                    </c:forEach>--%>
 <%--                                                </select>--%>
 <%--                                            </label>--%>
 <%--                                        </div>--%>
-                                        <div class="form-group">
+<%--                                        <div class="form-group">--%>
                                             <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
                                                 <button type="submit" class="btn btn-primary">انصراف</button>
                                                 <button type="submit" class="btn btn-success">ارسال</button>

@@ -31,7 +31,7 @@ public class DeviceGroupService implements ServiceInterface<DeviceGroup> {
     @Override
     @Transactional
     public void update(DeviceGroup deviceGroup) throws InvocationTargetException, IllegalAccessException {
-        DeviceGroup exist = this.deviceGroupRepository.findOne(DeviceGroup.class, deviceGroup.getId());
+        DeviceGroup exist = this.deviceGroupRepository.findOne(DeviceGroup.class, deviceGroup.getDeviceGroupId());
         MyBeanCopy myBeanCopy = new MyBeanCopy();
         myBeanCopy.copyProperties(exist, deviceGroup);
         this.deviceGroupRepository.save(exist);
@@ -50,7 +50,7 @@ public class DeviceGroupService implements ServiceInterface<DeviceGroup> {
 
     @Override
     public DeviceGroup findOne(DeviceGroup deviceGroup) {
-        return this.deviceGroupRepository.findOne(DeviceGroup.class, deviceGroup.getId());
+        return this.deviceGroupRepository.findOne(DeviceGroup.class, deviceGroup.getDeviceGroupId());
     }
 
     @Override

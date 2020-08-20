@@ -41,7 +41,8 @@
                                         مدل دستگاه
                                         <select name="deviceModel">
                                             <c:forEach items="${deviceModels}" var="device">
-                                                <option value="${device.id}">${device.name}</option>
+                                                <option value="${device.id}"
+                                                >${device.name}</option>
                                             </c:forEach>
                                         </select>
                                         <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
@@ -60,18 +61,6 @@
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                         <input type="text" class="form-control" id="threshold" name="threshold"
                                                placeholder="threshold">
-                                        <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
-                                    </div>
-
-                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control" id="max_unit" name="max_unit"
-                                               placeholder="حداکثر واحد">
-                                        <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
-                                    </div>
-
-                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control" id="cover" name="cover"
-                                               placeholder="کاور">
                                         <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                                     </div>
 

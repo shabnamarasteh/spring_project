@@ -29,7 +29,7 @@ public class DatacenterController {
         return "admin/device/datacenterCreate";
     }
 
-    @RequestMapping(value = "/datacenter/all.do", method = RequestMethod.GET)
+    @RequestMapping(value = {"/datacenter/all.do", "/datacenter/index.do"}, method = RequestMethod.GET)
     public String index(Model model) {
         model.addAttribute("datacenters", this.datacenterService.findAll());
         return "admin/device/datacenterList";

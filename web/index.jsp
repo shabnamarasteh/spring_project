@@ -7,7 +7,7 @@
   <%
     response.sendRedirect("admin/index.jsp");
 
-    
+
   %>
   </body>
 </html>

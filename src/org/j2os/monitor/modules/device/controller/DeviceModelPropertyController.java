@@ -7,12 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.lang.reflect.InvocationTargetException;
 
 @Controller
 @RequestMapping("/admin/deviceModelProperty")
@@ -27,15 +28,6 @@ public class DeviceModelPropertyController {
         this.deviceModelPropertyService = deviceModelPropertyService;
         this.deviceModelService = deviceModelService;
     }
-//    private ServiceInterface devicePropertyService;
-//    private ServiceInterface deviceModelService;
-//
-//    @Autowired
-//    public DeviceModelPropertyController(@Qualifier("deviceModelPropertyService") ServiceInterface devicePropertyService,
-//                                         @Qualifier("deviceModelService") ServiceInterface deviceModelService) {
-//        this.devicePropertyService = devicePropertyService;
-//        this.deviceModelService = deviceModelService;
-//    }
 
     @RequestMapping(value = "/index.do", method = RequestMethod.GET)
     public String index(Model model) {
@@ -57,14 +49,7 @@ public class DeviceModelPropertyController {
         }
         deviceModelPropertyService.add(deviceProperty);
 
-//        devicePropertyService.add(deviceProperty);
         return "redirect:/admin/deviceModelProperty/index.do";
-    }
-
-    @RequestMapping(value = "/edit/{id}")
-    public String editForm(@PathVariable long id) {
-        DeviceModelProperty deviceProperty = (DeviceModelProperty) this.deviceModelPropertyService.findById(id);
-        return "admin/deviceModelProperty/deviceModelPropertyCreate";
     }
 
     @RequestMapping(value = "/delete.do", method = RequestMethod.DELETE)
@@ -76,26 +61,32 @@ public class DeviceModelPropertyController {
         return "redirect:/admin/deviceModelProperty/index.do";
     }
 
-//        DeviceModelProperty deviceProperty = (DeviceModelProperty) this.devicePropertyService.findById(id);
-//        return "admin/deviceModelProperty/deviceModelPropertyCreate";
-//    }
-//
-//    @RequestMapping(value = "/delete/{id}")
-//    public String delete(@PathVariable long id) {
-//        DeviceModelProperty deviceProperty = (DeviceModelProperty) this.devicePropertyService.findById(id);
-//        this.devicePropertyService.delete(deviceProperty);
-//        return "redirect:admin/deviceModelProperty";
-//    }
 
-    @RequestMapping(value = "/admin/{id}", method = RequestMethod.GET)
-    public String findOne(@PathVariable long id) {
-        return "admin/admin/create";
+    @RequestMapping(value = "/{id}/edit.do", method = RequestMethod.GET)
+    public String editForm(@PathVariable("id") long id, Model model) {
+        DeviceModelProperty deviceModelProperty = (DeviceModelProperty) this.deviceModelPropertyService.findById(id);
+        model.addAttribute("deviceProperty", deviceModelProperty);
+        model.addAttribute("deviceModels", this.deviceModelService.findAll());
+        return "/admin/device/deviceModelPropertyEdit";
     }
 
-    @RequestMapping(value = "/admin/", method = RequestMethod.GET)
-    public String findAll() {
-        return "admin/admin/list";
+    @RequestMapping(value = "/update.do", method = RequestMethod.PUT)
+    public String update(@ModelAttribute("deviceModelProperty") DeviceModelProperty deviceModelProperty) {
+        try {
+            if (deviceModelProperty != null && deviceModelProperty.getDeviceModel().getId() != 0) {
+                long deviceId = deviceModelProperty.getDeviceModel().getId();
+                deviceModelProperty.setDeviceModel((DeviceModel) this.deviceModelService.findById(deviceId));
+            }
+            deviceModelPropertyService.update(deviceModelProperty);
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+
+        return "redirect:/admin/deviceModelProperty/index.do";
     }
+
 }
 
 

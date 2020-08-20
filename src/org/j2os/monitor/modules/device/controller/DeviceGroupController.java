@@ -8,9 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.lang.reflect.InvocationTargetException;
 
 @Controller
 @RequestMapping("/admin/deviceGroup")
@@ -39,35 +40,25 @@ public class DeviceGroupController {
         return "redirect:/admin/deviceGroup/index.do";
     }
 
-    @RequestMapping(value = "/edit/{id}")
-    public String editForm(@PathVariable long id) {
-        DeviceGroup deviceGroup = (DeviceGroup) this.deviceGroupService.findById(id);
-        return "admin/admin/create";
+    @RequestMapping(value = "/update.do", method = RequestMethod.PUT)
+    public String update(@ModelAttribute("deviceGroup") DeviceGroup deviceGroup) {
+        try {
+            deviceGroupService.update(deviceGroup);
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+
+        return "redirect:/admin/deviceGroup/index.do";
     }
 
-
     @RequestMapping(value = "/delete.do", method = RequestMethod.DELETE)
-    public String delete_dg(@RequestParam("deviceGroupId") long id) {
+    public String delete(@RequestParam("deviceGroupId") long id) {
         DeviceGroup deviceGroup = (DeviceGroup) this.deviceGroupService.findById(id);
         if (deviceGroup != null) {
             this.deviceGroupService.delete(deviceGroup);
         }
         return "redirect:/admin/deviceGroup/index.do";
-    }
-    @RequestMapping(value = "/delete/{id}")
-    public String delete(@PathVariable long id) {
-        DeviceGroup deviceGroup = (DeviceGroup) this.deviceGroupService.findById(id);
-        this.deviceGroupService.delete(deviceGroup);
-        return "redirect:admin/admin/";
-    }
-
-    @RequestMapping(value = "/admin/{id}", method = RequestMethod.GET)
-    public String findOne(@PathVariable long id) {
-        return "admin/admin/create";
-    }
-
-    @RequestMapping(value = "/admin/", method = RequestMethod.GET)
-    public String findAll() {
-        return "admin/admin/list";
     }
 }

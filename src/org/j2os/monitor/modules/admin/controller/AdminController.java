@@ -8,11 +8,14 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 @Controller
@@ -36,7 +39,6 @@ public class AdminController {
 
     @RequestMapping(value = "/admin/create.do", method = RequestMethod.GET)
     public String create(Model model) {
-
         List<Role> roles = this.roleServiceInterface.findAll();
         model.addAttribute("roles", roles);
         return "/admin/admin/create";
@@ -52,14 +54,34 @@ public class AdminController {
         return "redirect:/admin/index.do";
     }
 
-    @RequestMapping(value = "/edit.do",method = RequestMethod.POST)
-    public String editForm(@RequestParam("adminId") long id,Model model) {
+
+    @RequestMapping(value = "/{id}/edit.do",method = RequestMethod.GET)
+    public String editForm(@PathVariable("id") long id,Model model) {
         Admin admin = (Admin) this.adminServiceInterface.findById(id);
         model.addAttribute("admin",admin);
         List<Role> roles = this.roleServiceInterface.findAll();
         model.addAttribute("roles", roles);
-        return "admin/admin/create";
+        return "admin/admin/edit";
     }
+
+    @RequestMapping(value = "/admin/update.do", method = RequestMethod.PUT)
+    public String update(@ModelAttribute("admin") Admin admin) {
+//        if (admin.getRoleId().getId() != 0) {
+//            Role role = (Role) this.roleServiceInterface.findById(admin.getRoleId().getId());
+//            admin.setRoleId(role);
+//        }
+        if(admin.getId() != 0){
+            try {
+                adminServiceInterface.update(admin);
+            } catch (InvocationTargetException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
+        return "redirect:/admin/index.do";
+    }
+
 
     @RequestMapping(value = "/delete.do", method = RequestMethod.DELETE)
     public String delete(@RequestParam("adminId") long id) {
@@ -70,13 +92,4 @@ public class AdminController {
         return "redirect:/admin/index.do";
     }
 
-    @RequestMapping(value = "/admin/{id}", method = RequestMethod.GET)
-    public String findOne(@PathVariable long id) {
-        return "admin/admin/create";
-    }
-
-    @RequestMapping(value = "/admin/", method = RequestMethod.GET)
-    public String findAll() {
-        return "admin/admin/list";
-    }
 }

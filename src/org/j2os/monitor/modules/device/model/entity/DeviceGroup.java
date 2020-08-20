@@ -13,7 +13,7 @@ public class DeviceGroup {
     @Column(name = "id", columnDefinition = "number")
     @SequenceGenerator(name = "device_model_seq", sequenceName = "device_model_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "device_model_seq")
-    private long id;
+    private long deviceGroupId;
 
     @Column(name = "name", columnDefinition = "nvarchar2(200)")
     private String name;
@@ -51,12 +51,12 @@ public class DeviceGroup {
         this.description = description;
     }
 
-    public long getId() {
-        return id;
+    public long getDeviceGroupId() {
+        return deviceGroupId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setDeviceGroupId(long deviceGroupid) {
+        this.deviceGroupId = deviceGroupid;
     }
 
     public String getName() {
@@ -104,6 +104,17 @@ public class DeviceGroup {
     }
 
     public void setUpdatedBy(LocalDateTime updatedBy) {
+        this.updatedBy = updatedBy;
+    }
+
+
+
+    public DeviceGroup(String name, String description, LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime createdBy, LocalDateTime updatedBy) {
+        this.name = name;
+        this.description = description;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.createdBy = createdBy;
         this.updatedBy = updatedBy;
     }
 }
