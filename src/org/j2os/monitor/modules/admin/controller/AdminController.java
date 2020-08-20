@@ -7,11 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 @Controller
@@ -23,19 +21,20 @@ public class AdminController {
     @Autowired
     public AdminController(@Qualifier("adminService") ServiceInterface adminServiceInterface,
                            @Qualifier("roleService") ServiceInterface roleServiceInterface) {
+        System.out.println("----------24-------------");
         this.adminServiceInterface = adminServiceInterface;
         this.roleServiceInterface = roleServiceInterface;
     }
 
     @RequestMapping(value = "/index.do", method = RequestMethod.GET)
     public String index(Model model) {
-        model.addAttribute("items", adminServiceInterface.findAll());
+        model.addAttribute("items", this.adminServiceInterface.findAll());
         return "/admin/admin/list";
     }
 
     @RequestMapping(value = "/admin/create.do", method = RequestMethod.GET)
     public String create(Model model) {
-        List<Role> roles = roleServiceInterface.findAll();
+        List<Role> roles = this.roleServiceInterface.findAll();
         model.addAttribute("roles", roles);
         return "/admin/admin/create";
     }
@@ -43,33 +42,50 @@ public class AdminController {
     @RequestMapping(value = "/admin/save.do", method = RequestMethod.POST)
     public String save(@ModelAttribute("admin") Admin admin) {
         if (admin.getRoleId().getId() != 0) {
-            Role role = (Role) roleServiceInterface.findById(admin.getRoleId().getId());
+            Role role = (Role) this.roleServiceInterface.findById(admin.getRoleId().getId());
             admin.setRoleId(role);
         }
         adminServiceInterface.add(admin);
         return "redirect:/admin/index.do";
     }
 
-    @RequestMapping(value = "/edit/{id}")
-    public String editForm(@PathVariable long id) {
+    @RequestMapping(value = "/{id}/edit.do",method = RequestMethod.GET)
+    public String editForm(@PathVariable("id") long id,Model model) {
         Admin admin = (Admin) this.adminServiceInterface.findById(id);
-        return "admin/admin/create";
+        model.addAttribute("admin",admin);
+        List<Role> roles = this.roleServiceInterface.findAll();
+        model.addAttribute("roles", roles);
+        return "admin/admin/edit";
     }
 
-    @RequestMapping(value = "/delete/{id}")
-    public String delete(@PathVariable long id) {
+    @RequestMapping(value = "/admin/update.do", method = RequestMethod.PUT)
+    public String update(@ModelAttribute("admin") Admin admin) {
+        if (admin.getRoleId().getId() != 0) {
+            Role role = (Role) this.roleServiceInterface.findById(admin.getRoleId().getId());
+            admin.setRoleId(role);
+        }
+        if(admin.getId() != 0){
+            try {
+                adminServiceInterface.update(admin);
+            } catch (InvocationTargetException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
+        return "redirect:/admin/index.do";
+    }
+
+
+    @RequestMapping(value = "/delete.do", method = RequestMethod.DELETE)
+    public String delete(@RequestParam("adminId") long id) {
         Admin admin = (Admin) this.adminServiceInterface.findById(id);
-        this.adminServiceInterface.delete(admin);
-        return "redirect:admin/admin/";
+        if(admin != null){
+            this.adminServiceInterface.delete(admin);
+        }
+        return "redirect:/admin/index.do";
     }
 
-    @RequestMapping(value = "/admin/{id}", method = RequestMethod.GET)
-    public String findOne(@PathVariable long id) {
-        return "admin/admin/create";
-    }
 
-    @RequestMapping(value = "/admin/", method = RequestMethod.GET)
-    public String findAll() {
-        return "admin/admin/list";
-    }
+
 }

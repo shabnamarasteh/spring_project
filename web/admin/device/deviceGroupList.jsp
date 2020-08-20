@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <html>
 
 <head>
@@ -32,11 +34,19 @@
 
                         <c:forEach items="${items}" var="item">
                             <tr>
-                                <td>${item.id}</td>
+                                <td>${item.deviceGroupId}</td>
                                 <td>${item.name}</td>
                                 <td>${item.description}</td>
-                                <td></td>
-                                <td></td>
+                                <td>
+                                    <a href="/admin/deviceGroup/${item.deviceGroupId}/edit.do" class="btn btn-success">ویرایش</a>
+                                </td>
+
+                                <td>
+                                    <form:form action="/admin/deviceGroup/delete.do" method="delete">
+                                        <input type="hidden" name="deviceGroupId" value="${item.deviceGroupId}">
+                                        <input type="submit" value="حذف" class="btn btn-danger">
+                                    </form:form>
+                                </td>
 
                             </tr>
                         </c:forEach>

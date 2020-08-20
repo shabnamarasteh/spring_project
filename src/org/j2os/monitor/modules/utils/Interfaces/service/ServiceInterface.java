@@ -1,8 +1,5 @@
 package org.j2os.monitor.modules.utils.Interfaces.service;
 
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 

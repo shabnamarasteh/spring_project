@@ -26,22 +26,40 @@
                         <div role="tabpanel" class="tab-pane fade active in" id="tab_content11" aria-labelledby="home-tab">
                             <div class="x_content">
                                 <br/>
-                                <form:form method="post" action="/admin/deviceGroup/save.do" modelAttribute="deviceGroup">
+                                <form:form class="form-horizontal form-label-left input_mask"
+                                           method="put" action="/admin/deviceModel/update.do" modelAttribute="deviceModel">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="نام گروه دستگاه"
-                                               value="${deviceGroup.name}">
-
+                                        <input type="hidden" name="id" value="${deviceModel.id}" />
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="نام"
+                                               value="${deviceModel.name}">
                                         <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
 
                                     </div>
 
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <textarea type="text" class="form-control has-feedback-left" id="description"
-                                                  name="description"
-                                               placeholder="توضیحات" >${deviceGroup.description}
-                                        </textarea>
-                                        <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+                                        <input type="text" class="form-control" id="model" name="model" placeholder="مدل"
+                                               value="${deviceModel.model}">
+                                        <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                                     </div>
+
+                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                        <textarea type="text" class="form-control" id="description" placeholder="توضیحات" name="description" >
+                                            ${deviceModel.id}
+                                        </textarea>
+                                        <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
+                                    </div>
+
+                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                        <input type="text" class="form-control" id="max_unit" name="max_unit" placeholder="حداکثر واحد"
+                                               value="${deviceModel.max_unit}">
+                                        <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
+                                    </div>
+
+                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                        <input type="text" class="form-control" id="cover" name="cover" placeholder="کاور" value="${deviceModel.cover}">
+                                        <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
+                                    </div>
+
 
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                         <div class="form-group">

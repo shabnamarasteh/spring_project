@@ -61,6 +61,7 @@ public class DeviceModelPropertyService implements ServiceInterface<DeviceModelP
 
     @Override
     public DeviceModelProperty findById(long id) {
+        System.out.println("-----------64------------"+id);
         return this.deviceModelPropertyRepository.findOne(DeviceModelProperty.class, id);
     }
 }

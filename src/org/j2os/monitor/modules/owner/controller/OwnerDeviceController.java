@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+
+import java.lang.reflect.InvocationTargetException;
 
 @Controller
 @RequestMapping("/owner")
@@ -16,8 +16,7 @@ public class OwnerDeviceController {
     private ServiceInterface ownerDeviceService;
 
     @Autowired
-    public OwnerDeviceController(@Qualifier("ownerDeviceService") ServiceInterface ownerDeviceService)
-    {
+    public OwnerDeviceController(@Qualifier("ownerDeviceService") ServiceInterface ownerDeviceService) {
         this.ownerDeviceService = ownerDeviceService;
     }
 
@@ -28,39 +27,43 @@ public class OwnerDeviceController {
     }
 
     @RequestMapping(value = "/create.do", method = RequestMethod.GET)
-    public String create(Model model)
-    {
+    public String create(Model model) {
         return "/admin/owner/ownerCreate";
     }
 
     @RequestMapping(value = "/save.do", method = RequestMethod.POST)
     public String save(@ModelAttribute("owner") OwnerDevice owner) {
-        System.out.println("-------145454-----");
-        ownerDeviceService.add(owner);
+            ownerDeviceService.add(owner);
         return "redirect:/owner/index.do";
     }
-//
-//    @RequestMapping(value = "/edit/{id}")
-//    public String editForm(@PathVariable long id) {
-//        Admin admin = (Admin) this.serviceInterface.findById(id);
-//        return "admin/admin/create";
-//    }
-//
-//    //    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-//    @RequestMapping(value = "/delete/{id}")
-//    public String delete(@PathVariable long id) {
-//        Admin admin = (Admin) this.serviceInterface.findById(id);
-//        this.serviceInterface.delete(admin);
-//        return "redirect:admin/admin/";
-//    }
-//
-//    @RequestMapping(value = "/admin/{id}", method = RequestMethod.GET)
-//    public String findOne(@PathVariable long id) {
-//        return "admin/admin/create";
-//    }
-//
-//    @RequestMapping(value = "/admin/", method = RequestMethod.GET)
-//    public String findAll() {
-//        return "admin/admin/list";
-//    }
+
+    @RequestMapping(value = "/{id}/edit.do",method = RequestMethod.GET)
+    public String editForm(@PathVariable("id") long id, Model model) {
+        OwnerDevice admin = (OwnerDevice) this.ownerDeviceService.findById(id);
+        model.addAttribute("owner",admin);
+        return "admin/owner/ownerEdit";
+    }
+
+    @RequestMapping(value = "/update.do", method = RequestMethod.PUT)
+    public String update(@ModelAttribute("owner") OwnerDevice owner) {
+        try {
+            ownerDeviceService.update(owner);
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+
+        return "redirect:/owner/index.do";
+    }
+
+    @RequestMapping(value = "/delete.do", method = RequestMethod.DELETE)
+    public String delete(@RequestParam("ownerId") long id) {
+        OwnerDevice admin = (OwnerDevice) this.ownerDeviceService.findById(id);
+        if (admin != null) {
+            this.ownerDeviceService.delete(admin);
+        }
+        return "redirect:/owner/index.do";
+    }
+
 }

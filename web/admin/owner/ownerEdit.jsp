@@ -28,10 +28,11 @@
                              aria-labelledby="home-tab">
                             <div class="x_content">
                                 <br/>
-                                <form:form class="form-horizontal form-label-left input_mask" method="post"
-                                      action="/owner/save.do"
+                                <form:form  class="form-horizontal form-label-left input_mask" method="put"
+                                      action="/owner/update.do"
                                       modelAttribute="owner">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                        <input type="hidden" name="ownerId" value="${owner.ownerId}"/>
                                         <input type="text" class="form-control has-feedback-left" name="firstName"
                                                id="firstName" placeholder="نام" value="${owner.firstName}">
                                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
