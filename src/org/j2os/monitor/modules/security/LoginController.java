@@ -32,7 +32,7 @@ public class LoginController{
     @RequestMapping(value = "/authenticate.do", method = RequestMethod.POST)
     public String authenticate(@RequestParam("username") String username, @RequestParam("password") String password
             , RedirectAttributes redirectAttributes) {
-        System.out.println(username + "--------------" + password);
+//        System.out.println(username + "--------------" + password);
         Admin admin = this.adminMethodService.authenticate(username, password);
         if (admin != null ) {
 //            model.addAttribute("adminData",admin);

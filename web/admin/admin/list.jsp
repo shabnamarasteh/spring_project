@@ -25,7 +25,7 @@
                             <th class="column-title">نام</th>
                             <th class="column-title">نام خانوادگی</th>
                             <th class="column-title">پست الکترونیک</th>
-                            <th class="column-title">نام نقش</th>
+<%--                            <th class="column-title">نام نقش</th>--%>
                             <th class="column-title"></th>
                             <th class="column-title"></th>
 
@@ -40,7 +40,7 @@
                                 <td>${item.firstName}</td>
                                 <td>${item.lastName}</td>
                                 <td>${item.email}</td>
-                                <td>${item.roleId.name}</td>
+<%--                                <td>${item.roleId.name}</td>--%>
                                 <td>
                                     <a href="/admin/${item.id}/edit.do" class="btn btn-success">ویرایش</a>
                                 </td>

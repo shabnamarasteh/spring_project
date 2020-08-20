@@ -55,25 +55,25 @@
                                                value="${admin.password}" name="confirmPassword" placeholder="تکرار رمزعبور">
                                         <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                                     </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <div class="checkbox">
-                                            <label class=""> نقش ها
-                                                <select name="roleId">
-                                                    <c:forEach items="${roles}" var="role">
-                                                        <option value="${role.id}"
-                                                            ${role.id == admin.roleId.id ? 'selected="selected"' : ''}
-                                                        >${role.name}</option>
-                                                    </c:forEach>
-                                                </select>
-                                            </label>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-                                                <button type="submit" class="btn btn-primary">انصراف</button>
-                                                <button type="submit" class="btn btn-success">ارسال</button>
-                                            </div>
-                                        </div>
-                                    </div>
+<%--                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">--%>
+<%--                                        <div class="checkbox">--%>
+<%--                                            <label class=""> نقش ها--%>
+<%--                                                <select name="roleId">--%>
+<%--                                                    <c:forEach items="${roles}" var="role">--%>
+<%--                                                        <option value="${role.id}"--%>
+<%--                                                            ${role.id == admin.roleId.id ? 'selected="selected"' : ''}--%>
+<%--                                                        >${role.name}</option>--%>
+<%--                                                    </c:forEach>--%>
+<%--                                                </select>--%>
+<%--                                            </label>--%>
+<%--                                        </div>--%>
+<%--                                        <div class="form-group">--%>
+<%--                                            <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">--%>
+<%--                                                <button type="submit" class="btn btn-primary">انصراف</button>--%>
+<%--                                                <button type="submit" class="btn btn-success">ارسال</button>--%>
+<%--                                            </div>--%>
+<%--                                        </div>--%>
+<%--                                    </div>--%>
                                 </form:form>
                             </div>
                         </div>
