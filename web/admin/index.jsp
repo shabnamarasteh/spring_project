@@ -7,7 +7,7 @@
     <jsp:include page="section/header.jsp"/>
     <title>صفحه اصلی</title>
 </head>
-<div class="nav-md">
+<body class="nav-md">
 
 <jsp:include page="section/nav.jsp"/>
 <div class="right_col" role="main">
@@ -218,11 +218,19 @@
 
         </div>
     </div>
-
-
     <jsp:include page="section/singleFooter.jsp"/>
+
 </div>
-</div>
+<%--<footer class="hidden-print">--%>
+<%--    <div class="pull-left">--%>
+<%--        Gentelella - قالب پنل مدیریت بوت استرپ <a href="https://colorlib.com">Colorlib</a> | پارسی شده توسط <a--%>
+<%--            href="https://morteza-karimi.ir">مرتضی کریمی</a>--%>
+<%--    </div>--%>
+<%--    <div class="clearfix"></div>--%>
+<%--</footer>--%>
+<!-- /footer content -->
+<%--</div>--%>
+<%--</div>--%>
 
 <jsp:include page="section/footer.jsp"/>
 </body>
