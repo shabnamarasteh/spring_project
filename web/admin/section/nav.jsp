@@ -27,7 +27,7 @@
                 <!-- sidebar menu -->
                 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                     <div class="menu_section">
-                        <%--                        <h3>دستگاه ها</h3>--%>
+                        <%--                        <h3>سرور ها</h3>--%>
                         <ul class="nav side-menu">
                             <li><a href="/admin"><i class="fa fa-home"></i> صفحه اصلی</a>
 
@@ -35,19 +35,19 @@
                             <li><a><i class="fa fa-users"></i> کاربران <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="/admin/index.do">مدیران سیستم </a></li>
-                                    <li><a href="/owner/index.do">صاحبان دستگاه </a></li>
+                                    <li><a href="/owner/index.do">صاحبان سرور </a></li>
                                 </ul>
                             </li>
 
-                            <li><a><i class="fa fa-money"></i> دستگاه ها <span class="fa fa-chevron-down"></span></a>
+                            <li><a><i class="fa fa-money"></i> سرور ها <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
 
                                     <li><a href="/admin/datacenter/index.do"> دیتاسنترها </a></li>
-                                    <li><a href="/admin/deviceModel/index.do"> مدل دستگاه </a></li>
-                                    <li><a href="/admin/deviceGroup/index.do"> گروه دستگاه </a></li>
-                                    <li><a href="/admin/deviceModelProperty/index.do"> ویژگی مدل دستگاه </a></li>
+                                    <li><a href="/admin/deviceModel/index.do"> مدل سرور </a></li>
+                                    <li><a href="/admin/deviceGroup/index.do"> گروه سرور </a></li>
+                                    <li><a href="/admin/deviceModelProperty/index.do"> ویژگی مدل سرور </a></li>
                                     <li><a href="/admin/rack/index.do">رک ها </a></li>
-                                    <li><a href="/admin/device/index.do">دستگاه ها </a></li>
+                                    <li><a href="/admin/device/index.do">سرور ها </a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-bar-chart-o"></i> گزارشات <span

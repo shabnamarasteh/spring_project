@@ -40,22 +40,22 @@
                                     </div>
 
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        مدل دستگاه
-                                        <select name="deviceModel">
+<%--                                        مدل دستگاه--%>
+                                        <select name="deviceModel" class="form-control">
                                             <c:forEach items="${deviceModels}" var="device">
                                                 <option value="${device.id}"
                                                     ${device.id == deviceProperty.deviceModel.id ? 'selected="selected"' : ''}
                                                 >${device.name}</option>
                                             </c:forEach>
                                         </select>
-                                        <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
+<%--                                        <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>--%>
                                     </div>
 
-                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control" id="url" name="url" placeholder="آدرس "
-                                        value="${deviceProperty.url}">
-                                        <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
-                                    </div>
+<%--                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">--%>
+<%--                                        <input type="text" class="form-control" id="url" name="url" placeholder="آدرس "--%>
+<%--                                        value="${deviceProperty.url}">--%>
+<%--                                        <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>--%>
+<%--                                    </div>--%>
 
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                         <input type="text" class="form-control" id="type" name="type" placeholder="نوع"

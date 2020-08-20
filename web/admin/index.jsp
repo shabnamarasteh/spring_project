@@ -14,31 +14,31 @@
     <!-- top tiles -->
     <div class="row tile_count">
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-            <span class="count_top"><i class="fa fa-user"></i> تعداد کاربران</span>
+            <span class="count_top"><i class="fa fa-user"></i> مدیران سیستم</span>
             <div class="count">2500</div>
             <a href="/admin/index.do">454545454</a>
             <span class="count_bottom"><i class="green">4% </i> از هفته گذشته</span>
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-            <span class="count_top"><i class="fa fa-clock-o"></i> میانگین زمان</span>
+            <span class="count_top"><i class="fa fa-clock-o"></i> صاحبان دستگاه</span>
             <div class="count">123.50</div>
             <span class="count_bottom"><i class="green"><i
                     class="fa fa-sort-asc"></i>3% </i> از هفته گذشته</span>
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-            <span class="count_top"><i class="fa fa-user"></i> مجموع مردان</span>
+            <span class="count_top"><i class="fa fa-user"></i> تعداد دیتاسنتر ها</span>
             <div class="count green">2,500</div>
             <span class="count_bottom"><i class="green"><i
-                    class="fa fa-sort-asc"></i>34% </i> از هفته گذشته</span>
+                    class="fa fa-sort-asc"></i>34% </i> تعداد رک ها</span>
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-            <span class="count_top"><i class="fa fa-user"></i> مجموع زنان</span>
+            <span class="count_top"><i class="fa fa-user"></i> تعداد سرور ها</span>
             <div class="count">4,567</div>
             <span class="count_bottom"><i class="red"><i
                     class="fa fa-sort-desc"></i>12% </i> از هفته گذشته</span>
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-            <span class="count_top"><i class="fa fa-user"></i> مجموعه کلی</span>
+            <span class="count_top"><i class="fa fa-user"></i> تعداد مدل ها</span>
             <div class="count">2,315</div>
             <span class="count_bottom"><i class="green"><i
                     class="fa fa-sort-asc"></i>34% </i> از هفته گذشته</span>
