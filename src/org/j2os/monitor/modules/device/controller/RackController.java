@@ -30,7 +30,7 @@ public class RackController {
         return "admin/device/rackCreate";
     }
 
-    @RequestMapping(value = "/rack/all.do", method = RequestMethod.GET)
+    @RequestMapping(value = {"/rack/all.do", "/rack/index.do"}, method = RequestMethod.GET)
     public String index(Model model) {
         model.addAttribute("racks", this.rackService.findAll());
         return "admin/device/rackList";
