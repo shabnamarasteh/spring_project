@@ -60,7 +60,7 @@
                                     class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="/admin/alarms">هشدار</a></li>
-                                    <li><a href="/admin/config">تنظیمات کلی</a></li>
+                                    <li><a href="/admin/config/index.do">تنظیمات کلی</a></li>
 
                                     <li><a href="/admin/state/all.do">استان</a></li>
                                     <li><a href="/admin/city/all.do">شهر</a></li>
