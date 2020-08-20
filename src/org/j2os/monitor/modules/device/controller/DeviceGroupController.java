@@ -40,15 +40,6 @@ public class DeviceGroupController {
         return "redirect:/admin/deviceGroup/index.do";
     }
 
-    @RequestMapping(value = "/delete.do", method = RequestMethod.DELETE)
-    public String delete_dg(@RequestParam("deviceGroupId") long id) {
-        DeviceGroup deviceGroup = (DeviceGroup) this.deviceGroupService.findById(id);
-        if (deviceGroup != null) {
-            this.deviceGroupService.delete(deviceGroup);
-        }
-        return "redirect:/admin/deviceGroup/index.do";
-    }
-
     @RequestMapping(value = "/update.do", method = RequestMethod.PUT)
     public String update(@ModelAttribute("deviceGroup") DeviceGroup deviceGroup) {
         try {
