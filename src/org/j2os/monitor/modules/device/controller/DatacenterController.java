@@ -43,7 +43,7 @@ public class DatacenterController {
         return "redirect:/admin/datacenter/all.do";
     }
 
-    @RequestMapping(value = "/datacenter/edit.do/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/datacenter/{id}/edit.do", method = RequestMethod.GET)
     public String edit(@PathVariable("id") long id, Model model) {
         model.addAttribute("cities" , this.cityService.findAll());
         model.addAttribute("datacenter", this.datacenterService.findById(id));
@@ -51,7 +51,7 @@ public class DatacenterController {
         return "admin/device/datacenterCreate";
     }
 
-    @RequestMapping(value = "/datacenter/edit.do/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/datacenter/{id}/edit.do", method = RequestMethod.PUT)
     public String update(@ModelAttribute("datacenter") Datacenter datacenter,@PathVariable("id") long id,Model model) {
         datacenter.setId(id);
         City city = (City) this.cityService.findById(datacenter.getCityId().getId());

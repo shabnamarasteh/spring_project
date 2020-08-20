@@ -26,8 +26,8 @@
                         <div role="tabpanel" class="tab-pane fade active in" id="tab_content11" aria-labelledby="home-tab">
                             <div class="x_content">
                                 <br/>
-                                <form:form class="form-horizontal form-label-left input_mask"
-                                           method="post" action="/admin/deviceModel/save.do" modelAttribute="deviceModel">
+                                <form class="form-horizontal form-label-left input_mask"
+                                           method="post" action="/admin/deviceModel/save.do" modelAttribute="device_Model">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                         <input type="text" class="form-control" id="name" name="name" placeholder="نام">
                                         <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
@@ -65,7 +65,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </form:form>
+                                </form>
                             </div>
                         </div>
                     </div>

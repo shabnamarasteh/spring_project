@@ -1,5 +1,6 @@
 package org.j2os.monitor.modules.owner.controller;
 
+import org.j2os.monitor.modules.admin.model.entity.Admin;
 import org.j2os.monitor.modules.owner.model.entity.OwnerDevice;
 import org.j2os.monitor.modules.utils.Interfaces.service.ServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +8,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import java.lang.reflect.InvocationTargetException;
 
 @Controller
@@ -16,7 +16,9 @@ public class OwnerDeviceController {
     private ServiceInterface ownerDeviceService;
 
     @Autowired
-    public OwnerDeviceController(@Qualifier("ownerDeviceService") ServiceInterface ownerDeviceService) {
+
+    public OwnerDeviceController(@Qualifier("ownerDeviceService") ServiceInterface ownerDeviceService)
+    {
         this.ownerDeviceService = ownerDeviceService;
     }
 
@@ -67,4 +69,22 @@ public class OwnerDeviceController {
         return "redirect:/owner/index.do";
     }
 
+//
+//    //    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+//    @RequestMapping(value = "/delete/{id}")
+//    public String delete(@PathVariable long id) {
+//        Admin admin = (Admin) this.serviceInterface.findById(id);
+//        this.serviceInterface.delete(admin);
+//        return "redirect:admin/admin/";
+//    }
+
+//    @RequestMapping(value = "/admin/{id}", method = RequestMethod.GET)
+//    public String findOne(@PathVariable long id) {
+//        return "admin/admin/create";
+//    }
+//
+//    @RequestMapping(value = "/admin/", method = RequestMethod.GET)
+//    public String findAll() {
+//        return "admin/admin/list";
+//    }
 }
