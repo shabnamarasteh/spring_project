@@ -24,13 +24,13 @@ public class RackController {
         this.rackService = rackService;
     }
 
-    @RequestMapping(value = "/rack/create.do", method = RequestMethod.GET)
+    @RequestMapping(value = {"/rack/create.do" }, method = RequestMethod.GET)
     public String create(Model model) {
         model.addAttribute("datacenters", this.datacenterService.findAll());
         return "admin/device/rackCreate";
     }
 
-    @RequestMapping(value = "/rack/all.do", method = RequestMethod.GET)
+    @RequestMapping(value = {"/rack/all.do", "/rack/"}, method = RequestMethod.GET)
     public String index(Model model) {
         model.addAttribute("racks", this.rackService.findAll());
         return "admin/device/rackList";

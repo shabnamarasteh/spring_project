@@ -16,7 +16,7 @@
 </head>
 <body class="nav-md">
 
-<jsp:include page="../section/nav.jsp"/>
+<jsp:include page="../section/nav.jsp"/>/
 
 <div class="right_col" role="main">
     <div class="row">
