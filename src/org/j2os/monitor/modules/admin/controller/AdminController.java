@@ -40,10 +40,10 @@ public class AdminController {
 
     @RequestMapping(value = "/admin/save.do", method = RequestMethod.POST)
     public String save(@ModelAttribute("admin") Admin admin) {
-        if (admin.getRoleId().getId() != 0) {
-            Role role = (Role) this.roleServiceInterface.findById(admin.getRoleId().getId());
-            admin.setRoleId(role);
-        }
+//        if (admin.getRoleId().getId() != 0) {
+//            Role role = (Role) this.roleServiceInterface.findById(admin.getRoleId().getId());
+//            admin.setRoleId(role);
+//        }
         adminServiceInterface.add(admin);
         return "redirect:/admin/index.do";
     }
@@ -58,10 +58,10 @@ public class AdminController {
 
     @RequestMapping(value = "/admin/update.do", method = RequestMethod.PUT)
     public String update(@ModelAttribute("admin") Admin admin) {
-        if (admin.getRoleId().getId() != 0) {
-            Role role = (Role) this.roleServiceInterface.findById(admin.getRoleId().getId());
-            admin.setRoleId(role);
-        }
+//        if (admin.getRoleId().getId() != 0) {
+//            Role role = (Role) this.roleServiceInterface.findById(admin.getRoleId().getId());
+//            admin.setRoleId(role);
+//        }
         if(admin.getId() != 0){
             try {
                 adminServiceInterface.update(admin);
