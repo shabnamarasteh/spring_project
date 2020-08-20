@@ -25,9 +25,9 @@
                     </ul>
                     <div id="myTabContent2" class="tab-content">
                         <div role="tabpanel" class="tab-pane fade active in" id="tab_content11" aria-labelledby="home-tab">
-                            <div class="x_content">
+                             <div class="x_content">
                                 <br/>
-                                    <form:form method="post" action="/admin/admin/save.do"
+                                 <form:form method="post" action="/admin/admin/save.do"
                                                modelAttribute="admin">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                         <input type="text" class="form-control has-feedback-left" name="firstName"
@@ -72,7 +72,7 @@
                                         </div>
                                     </div>
                                 </form:form>
-                            </div>
+                             </div>
                         </div>
                     </div>
                 </div>
@@ -80,6 +80,7 @@
         </div>
     </div>
 </div>
+
 
 <jsp:include page="../section/footer.jsp"/>
 </body>

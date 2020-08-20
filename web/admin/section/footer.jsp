@@ -1,12 +1,5 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: shabnamPC
-  Date: 8/2/2020
-  Time: 8:57 AM
-  To change this template use File | Settings | File Templates.
---%>
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <script src="../../assets/vendors/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap -->
 <script src="../../assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -49,7 +42,11 @@
 <script src="/assets/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
 <script src="/assets/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
 
-<!-- Custom Theme Scripts -->
+<!-- Custom Theme Scr -->
 <script src="/assets/js/custom.min.js"></script>
+
+</body>
+</html>
+
 
 
