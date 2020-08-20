@@ -7,11 +7,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("/admin/deviceModelProperty")
 public class DeviceModelPropertyController {
+
     private ServiceInterface deviceModelPropertyService;
     private ServiceInterface deviceModelService;
 
@@ -21,6 +27,15 @@ public class DeviceModelPropertyController {
         this.deviceModelPropertyService = deviceModelPropertyService;
         this.deviceModelService = deviceModelService;
     }
+//    private ServiceInterface devicePropertyService;
+//    private ServiceInterface deviceModelService;
+//
+//    @Autowired
+//    public DeviceModelPropertyController(@Qualifier("deviceModelPropertyService") ServiceInterface devicePropertyService,
+//                                         @Qualifier("deviceModelService") ServiceInterface deviceModelService) {
+//        this.devicePropertyService = devicePropertyService;
+//        this.deviceModelService = deviceModelService;
+//    }
 
     @RequestMapping(value = "/index.do", method = RequestMethod.GET)
     public String index(Model model) {
@@ -41,6 +56,8 @@ public class DeviceModelPropertyController {
             deviceProperty.setDeviceModel((DeviceModel) this.deviceModelService.findById(deviceId));
         }
         deviceModelPropertyService.add(deviceProperty);
+
+//        devicePropertyService.add(deviceProperty);
         return "redirect:/admin/deviceModelProperty/index.do";
     }
 
@@ -59,6 +76,16 @@ public class DeviceModelPropertyController {
         return "redirect:/admin/deviceModelProperty/index.do";
     }
 
+//        DeviceModelProperty deviceProperty = (DeviceModelProperty) this.devicePropertyService.findById(id);
+//        return "admin/deviceModelProperty/deviceModelPropertyCreate";
+//    }
+//
+//    @RequestMapping(value = "/delete/{id}")
+//    public String delete(@PathVariable long id) {
+//        DeviceModelProperty deviceProperty = (DeviceModelProperty) this.devicePropertyService.findById(id);
+//        this.devicePropertyService.delete(deviceProperty);
+//        return "redirect:admin/deviceModelProperty";
+//    }
 
     @RequestMapping(value = "/admin/{id}", method = RequestMethod.GET)
     public String findOne(@PathVariable long id) {

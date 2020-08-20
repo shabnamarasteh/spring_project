@@ -6,7 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 
 import java.util.List;
 
@@ -44,12 +50,18 @@ public class DeviceModelController{
     }
 
     @RequestMapping(value = "/delete.do", method = RequestMethod.DELETE)
-    public String delete(@RequestParam("deviceModelId") long id) {
+    public String delete_dm(@RequestParam("deviceModelId") long id) {
         DeviceModel deviceModel = (DeviceModel) this.deviceModelService.findById(id);
         if (deviceModel != null) {
             this.deviceModelService.delete(deviceModel);
         }
         return "redirect:/admin/deviceModel/index.do";
+    }
+    @RequestMapping(value = "/delete/{id}")
+    public String delete(@PathVariable long id) {
+        DeviceModel deviceModel = (DeviceModel) this.deviceModelService.findById(id);
+        this.deviceModelService.delete(deviceModel);
+        return "redirect:admin/admin/";
     }
 
     @RequestMapping(value = "/admin/{id}", method = RequestMethod.GET)

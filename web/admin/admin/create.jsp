@@ -1,11 +1,6 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: shabnamPC
-  Date: 8/10/2020
-  Time: 6:09 AM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 
 <head>
@@ -31,22 +26,18 @@
                         <div role="tabpanel" class="tab-pane fade active in" id="tab_content11" aria-labelledby="home-tab">
                             <div class="x_content">
                                 <br/>
-                                <form class="form-horizontal form-label-left input_mask">
+                                    <form:form method="post" action="/admin/admin/save.do" modelAttribute="admin">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control has-feedback-left" name="first_name" id="first_name" placeholder="نام">
+                                        <input type="text" class="form-control has-feedback-left" name="firstName" id="firstName" placeholder="نام">
                                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control" id="last_name" name="last_name" placeholder="نام خانوادگی">
+                                        <input type="text" class="form-control" id="lastName" name="lastName" placeholder="نام خانوادگی">
                                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                         <input type="text" class="form-control has-feedback-left" id="email" name="email" placeholder="ایمیل">
                                         <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control" id="phonenumber" name="phonenumber" placeholder="تلفن">
-                                        <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                         <input type="password" class="form-control" id="password" name="password" placeholder="رمزعبور">
@@ -59,8 +50,10 @@
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                         <div class="checkbox">
                                             <label class=""> نقش ها
-                                                <select name="role">
-                                                    <option value="1">ادمین</option>
+                                                <select name="roleId">
+                                                    <c:forEach items="${roles}" var="role">
+                                                        <option value="${role.id}">${role.name}</option>
+                                                    </c:forEach>
                                                 </select>
                                             </label>
                                         </div>
@@ -71,7 +64,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </form>
+                                </form:form>
                             </div>
                         </div>
                     </div>

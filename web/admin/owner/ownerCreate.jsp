@@ -1,11 +1,6 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: hedi
-  Date: 8/10/2020
-  Time: 10:42 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 
 <head>
@@ -24,36 +19,42 @@
                 <div class="" role="tabpanel" data-example-id="togglable-tabs">
                     <ul id="myTab1" class="nav nav-tabs bar_tabs" role="tablist">
                         <li role="presentation" class="active">
-                            <a href="#tab_content11" id="home-tabb"  role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">ایجاد مدیریت جدید</a>
+                            <a href="#tab_content11" id="home-tabb" role="tab" data-toggle="tab" aria-controls="home"
+                               aria-expanded="true">ایجاد مدیریت جدید</a>
                         </li>
                     </ul>
                     <div id="myTabContent2" class="tab-content">
-                        <div role="tabpanel" class="tab-pane fade active in" id="tab_content11" aria-labelledby="home-tab">
+                        <div role="tabpanel" class="tab-pane fade active in" id="tab_content11"
+                             aria-labelledby="home-tab">
                             <div class="x_content">
                                 <br/>
-                                <form class="form-horizontal form-label-left input_mask">
+                                <form class="form-horizontal form-label-left input_mask" method="post"
+                                      action="/owner/save.do"
+                                      modelAttribute="owner">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control has-feedback-left" name="first_name" id="first_name" placeholder="نام">
+                                        <input type="text" class="form-control has-feedback-left" name="firstName"
+                                               id="firstName" placeholder="نام">
                                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control" id="last_name" name="last_name" placeholder="نام خانوادگی">
+                                        <input type="text" class="form-control" id="lastName" name="lastName"
+                                               placeholder="نام خانوادگی">
                                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                     </div>
+
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control has-feedback-left" id="email" name="email" placeholder="ایمیل">
-                                        <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control" id="phonenumber" name="phonenumber" placeholder="تلفن">
+                                        <input type="text" class="form-control" id="phoneNumber" name="phoneNumber"
+                                               placeholder="تلفن">
                                         <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control" id="mobilenumber" name="mobilenumber" placeholder="تلفنهمراه">
+                                        <input type="text" class="form-control" id="mobileNumber" name="mobileNumber"
+                                               placeholder="تلفنهمراه">
                                         <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control" id="address" name="address" placeholder="آدرس">
+                                        <input type="text" class="form-control" id="address" name="address"
+                                               placeholder="آدرس">
                                         <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">

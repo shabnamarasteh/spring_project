@@ -50,13 +50,13 @@ public class DeviceModel {
         updatedAt = LocalDateTime.now();
     }
 
-    public DeviceModel(String id) {
-        if(id != null){
-            this.id = Long.parseLong(id);
-        }
+    public DeviceModel() {
     }
 
-    public DeviceModel() {
+    public DeviceModel(String id) {
+        if (id != null) {
+            this.id = Long.parseLong(id);
+        }
     }
 
     public DeviceModel(String name, String model, String description, long max_unit, String cover) {

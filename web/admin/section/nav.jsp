@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="container body">
     <div class="main_container">
@@ -18,7 +17,7 @@
                     </div>
                     <div class="profile_info">
                         <span>خوش آمدید</span>
-<%--                        <h2>مرتضی کریمی</h2>--%>
+                        <%--                        <h2>مرتضی کریمی</h2>--%>
                     </div>
                 </div>
                 <!-- /menu profile quick info -->
@@ -28,32 +27,37 @@
                 <!-- sidebar menu -->
                 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                     <div class="menu_section">
-<%--                        <h3>دستگاه ها</h3>--%>
+                        <%--                        <h3>دستگاه ها</h3>--%>
                         <ul class="nav side-menu">
                             <li><a href="/admin"><i class="fa fa-home"></i> صفحه اصلی</a>
 
                             </li>
                             <li><a><i class="fa fa-users"></i> کاربران <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="/admin/admins/">مدیران سیستم </a></li>
+                                    <li><a href="/admin/index.do">مدیران سیستم </a></li>
                                     <li><a href="/admin/owners/">صاحبان دستگاه </a></li>
                                 </ul>
                             </li>
 
                             <li><a><i class="fa fa-money"></i> دستگاه ها <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="/admin/datacenter/all.do"> دیتاسنترها </a></li>
-                                    <li><a href="/admin/devicemodel/all.do"> مدل دستگاه </a></li>
-                                    <li><a href="/admin/rack/all.do">رک ها </a></li>
-                                    <li><a href="/admin/device/all.do">دستگاه ها </a></li>
+
+                                    <li><a href="/admin/datacenter"> دیتاسنترها </a></li>
+                                    <li><a href="/admin/deviceModel/index.do"> مدل دستگاه </a></li>
+                                    <li><a href="/admin/deviceGroup/index.do"> گروه دستگاه </a></li>
+                                    <li><a href="/admin/deviceModelProperty/index.do"> ویژگی مدل دستگاه </a></li>
+                                    <li><a href="/admin/rack">رک ها </a></li>
+                                    <li><a href="/admin/device">دستگاه ها </a></li>
                                 </ul>
                             </li>
-                            <li><a><i class="fa fa-bar-chart-o"></i> گزارشات <span class="fa fa-chevron-down"></span></a>
+                            <li><a><i class="fa fa-bar-chart-o"></i> گزارشات <span
+                                    class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="/admin/alarms">گزارش دستگاه ها</a></li>
                                 </ul>
                             </li>
-                            <li><a><i class="fa fa-bar-chart-o"></i> تنظیمات سیستم <span class="fa fa-chevron-down"></span></a>
+                            <li><a><i class="fa fa-bar-chart-o"></i> تنظیمات سیستم <span
+                                    class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="/admin/alarms">هشدار</a></li>
                                     <li><a href="/admin/config">تنظیمات کلی</a></li>
@@ -74,7 +78,8 @@
                     <a data-toggle="tooltip" data-placement="top" title="lang.configs.title">
                         <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                     </a>
-                    <a data-toggle="tooltip" data-placement="top" title="lang.configs.fullScreen" onclick="toggleFullScreen();">
+                    <a data-toggle="tooltip" data-placement="top" title="lang.configs.fullScreen"
+                       onclick="toggleFullScreen();">
                         <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
                     </a>
                     <a data-toggle="tooltip" data-placement="top" title="lang.configs.lock" class="lock_btn">
