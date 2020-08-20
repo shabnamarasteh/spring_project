@@ -23,7 +23,7 @@
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_content">
-                <a href="{{route('category_create')}}"
+                <a href="/admin/rack/create.do"
                    class="btn btn-round btn-primary">دستگاه جدید</a>
 
                 <div class="table-responsive">

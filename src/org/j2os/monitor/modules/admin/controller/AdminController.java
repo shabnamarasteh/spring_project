@@ -9,6 +9,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
@@ -40,13 +46,15 @@ public class AdminController {
 
     @RequestMapping(value = "/admin/save.do", method = RequestMethod.POST)
     public String save(@ModelAttribute("admin") Admin admin) {
-//        if (admin.getRoleId().getId() != 0) {
-//            Role role = (Role) this.roleServiceInterface.findById(admin.getRoleId().getId());
-//            admin.setRoleId(role);
-//        }
+        if (admin.getRoleId().getId() != 0) {
+            Role role = (Role) this.roleServiceInterface.findById(admin.getRoleId().getId());
+            admin.setRoleId(role);
+        }
         adminServiceInterface.add(admin);
         return "redirect:/admin/index.do";
     }
+
+
     @RequestMapping(value = "/{id}/edit.do",method = RequestMethod.GET)
     public String editForm(@PathVariable("id") long id,Model model) {
         Admin admin = (Admin) this.adminServiceInterface.findById(id);
@@ -83,7 +91,5 @@ public class AdminController {
         }
         return "redirect:/admin/index.do";
     }
-
-
 
 }

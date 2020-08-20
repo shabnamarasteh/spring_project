@@ -38,8 +38,8 @@ public class DeviceModelController{
     }
 
     @RequestMapping(value = "/save.do", method = RequestMethod.POST)
-    public String save(@ModelAttribute("deviceModel") DeviceModel deviceModel) {
-        deviceModelService.add(deviceModel);
+    public String save(@ModelAttribute("device_Model") DeviceModel deviceModel) {
+        this.deviceModelService.add(deviceModel);
         return "redirect:/admin/deviceModel/index.do";
     }
 
