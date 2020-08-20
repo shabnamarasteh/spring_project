@@ -24,7 +24,10 @@
         <servlet-name>spring</servlet-name>
         <url-pattern>*.do</url-pattern>
     </servlet-mapping>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8d1701c95f4cb6f960dca6edee46aab6f2b86482
     <filter>
         <filter-name>hiddenHttpMethodFilter</filter-name>
         <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>

@@ -1,10 +1,12 @@
 package org.j2os.monitor.modules.common.model.service;
 
 import org.j2os.monitor.modules.common.model.entity.City;
+import org.j2os.monitor.modules.common.model.entity.State;
 import org.j2os.monitor.modules.common.model.repository.CityRepository;
 import org.j2os.monitor.modules.utils.Interfaces.service.ServiceInterface;
 import org.j2os.monitor.modules.utils.MyBeanCopy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -60,4 +62,5 @@ public class CityService implements ServiceInterface<City> {
     public City findById(long id) {
         return this.cityRepository.findOne(City.class,id);
     }
+
 }

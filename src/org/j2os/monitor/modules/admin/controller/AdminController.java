@@ -21,7 +21,6 @@ public class AdminController {
     @Autowired
     public AdminController(@Qualifier("adminService") ServiceInterface adminServiceInterface,
                            @Qualifier("roleService") ServiceInterface roleServiceInterface) {
-        System.out.println("----------24-------------");
         this.adminServiceInterface = adminServiceInterface;
         this.roleServiceInterface = roleServiceInterface;
     }
@@ -48,7 +47,6 @@ public class AdminController {
         adminServiceInterface.add(admin);
         return "redirect:/admin/index.do";
     }
-
     @RequestMapping(value = "/{id}/edit.do",method = RequestMethod.GET)
     public String editForm(@PathVariable("id") long id,Model model) {
         Admin admin = (Admin) this.adminServiceInterface.findById(id);

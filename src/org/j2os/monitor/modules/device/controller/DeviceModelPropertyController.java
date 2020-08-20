@@ -8,12 +8,17 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.lang.reflect.InvocationTargetException;
 
 @Controller
 @RequestMapping("/admin/deviceModelProperty")
 public class DeviceModelPropertyController {
+
     private ServiceInterface deviceModelPropertyService;
     private ServiceInterface deviceModelService;
 
@@ -43,6 +48,7 @@ public class DeviceModelPropertyController {
             deviceProperty.setDeviceModel((DeviceModel) this.deviceModelService.findById(deviceId));
         }
         deviceModelPropertyService.add(deviceProperty);
+
         return "redirect:/admin/deviceModelProperty/index.do";
     }
 

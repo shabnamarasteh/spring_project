@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: hedi
@@ -25,37 +24,44 @@
                 <div class="" role="tabpanel" data-example-id="togglable-tabs">
                     <ul id="myTab1" class="nav nav-tabs bar_tabs" role="tablist">
                         <li role="presentation" class="active">
-                            <a href="#tab_content11" id="home-tabb"  role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">ایجاد مدیریت جدید</a>
+                            <a href="#tab_content11" id="home-tabb" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">ایجاد دستگاه جدید</a>
                         </li>
                     </ul>
                     <div id="myTabContent2" class="tab-content">
                         <div role="tabpanel" class="tab-pane fade active in" id="tab_content11" aria-labelledby="home-tab">
                             <div class="x_content">
                                 <br/>
-                                <form method="POST"
-                                      action="/admin/rack/save.do" modelAttribute="rack" class="form-horizontal form-label-left input_mask">
+                                <form method="POST" action="/admin/device/${id}/edit.do" modelAttribute="device"
+                                       class="form-horizontal form-label-left input_mask">
+                                    <input type="hidden" value="PUT" name="_method">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <select name="datacenterId" class="form-control">
-                                            <c:forEach items="${datacenters}" var="datacenter">
-                                                <option value="${datacenter.id}">${datacenter.name}</option>
-                                            </c:forEach>
-                                        </select>
+                                        <input type="text" class="form-control" id="device_name" value="${devive.name}" name="name" placeholder="نام دستگاه">
+                                        <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
 
-                                        <input type="text" class="form-control" id="datacenterId" name="datacenterId" placeholder="دیتاسنتر ">
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                        <input type="text" class="form-control" id="ip_address"  value="${devive.ipAddress}" name="ipAddress" placeholder="آی پی آدرس">
+                                        <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                        <input type="text" class="form-control has-feedback-left" value="${devive.device_model}" id="device_model" name="device_model"
+                                               placeholder="مدل دستگاه">
+                                        <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                        <input type="text" class="form-control" id="owner_device" name="owner_device" value="${devive.owner_device}" placeholder="صاحب دستگاه"/>
                                         <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                                     </div>
 
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="نام">
+                                        <input type="text" class="form-control" id="rack_id" name="rackId" value="${devive.rackId}" placeholder="شناسه رک">
                                         <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
-
                                     </div>
 
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control" id="maxUnit" name="maxUnit" placeholder="حداکثر واحد ">
+                                        <input type="text" class="form-control" id="start_unit" name="start_unit" value="${devive.start_unit}" placeholder="شروع واحد">
                                         <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                                     </div>
-
 
                                     <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 form-group has-feedback">
                                         <div class="form-group">

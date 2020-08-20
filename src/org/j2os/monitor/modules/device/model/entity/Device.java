@@ -5,7 +5,7 @@ import org.j2os.monitor.modules.owner.model.entity.OwnerDevice;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity(name = "device")
+@Entity(name = "devices")
 @Table(name = "device")
 public class Device {
     @Id
@@ -22,7 +22,7 @@ public class Device {
 
     @ManyToOne
     @JoinColumn(name = "device_model_id")
-    private DeviceModel deviceMode;
+    private DeviceModel deviceModel;
 
     @ManyToOne
     @JoinColumn(name = "ownerId")
@@ -60,14 +60,15 @@ public class Device {
     public Device() {
     }
 
-    public Device(String name, String ipAddress, DeviceModel deviceMode, OwnerDevice ownerDevice, Rack rackId, long startUnit) {
+    public Device(String name, String ipAddress, DeviceModel deviceModel, OwnerDevice ownerDevice, Rack rackId, long startUnit) {
         this.name = name;
         this.ipAddress = ipAddress;
-        this.deviceMode = deviceMode;
+        this.deviceModel = deviceModel;
         this.ownerDevice = ownerDevice;
         this.rackId = rackId;
         this.startUnit = startUnit;
     }
+
 
     public long getId() {
         return id;
@@ -93,12 +94,12 @@ public class Device {
         this.ipAddress = ipAddress;
     }
 
-    public DeviceModel getDeviceMode() {
-        return deviceMode;
+    public DeviceModel getDeviceModel() {
+        return deviceModel;
     }
 
-    public void setDeviceMode(DeviceModel deviceMode) {
-        this.deviceMode = deviceMode;
+    public void setDeviceModel(DeviceModel deviceModel) {
+        this.deviceModel = deviceModel;
     }
 
     public OwnerDevice getOwnerDevice() {

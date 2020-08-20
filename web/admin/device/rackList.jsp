@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: shabnamPC
@@ -12,7 +13,7 @@
 <head>
 
     <jsp:include page="../section/header.jsp"/>
-    <title>دستگاه ها</title>
+    <title>رک ها</title>
 </head>
 <body class="nav-md">
 
@@ -22,19 +23,16 @@
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_content">
-                <a href="/admin/device/create.do"
+                <a href="{{route('category_create')}}"
                    class="btn btn-round btn-primary">دستگاه جدید</a>
 
                 <div class="table-responsive">
                     <table class="table table-striped jambo_table bulk_action">
                         <thead>
                         <tr class="headings">
-                            <th class="column-title category-title">نام دستگاه</th>
-                            <th class="column-title category-title">آدرس IP</th>
-                            <th class="column-title category-title">مدل دستگاه</th>
-                            <th class="column-title category-title">رک</th>
-                            <th class="column-title category-title">یونیت شروع</th>
-                            <th class="column-title category-title">مالک دستگاه</th>
+                            <th class="column-title category-title">نام رک</th>
+                            <th class="column-title category-title">دیتاسنتر</th>
+                            <th class="column-title category-title">تعداد یونیت</th>
                             <th class="column-title"></th>
                             <th class="column-title"></th>
                         </tr>
@@ -42,18 +40,15 @@
 
                         <tbody>
 
-                        <c:forEach items="${devices}" var="device">
+                        <c:forEach items="${racks}" var="rack">
                         <tr>
-                            <td>${device.name}</td>
-                            <td>${device.ipAddress}</td>
-                            <td>${device.deviceModel}</td>
-                            <td>${device.ownerDevice}</td>
-                            <td>${device.rackId}</td>
-                            <td>${device.startUnit}</td>
-                            <td><a class="btn btn-info" href="/admin/datacenter/edit.do/${device.id}">ویرایش</a></td>
+                            <td>${rack.name}</td>
+                            <td>${rack.datacenterId.name}</td>
+                            <td>${rack.maxUnit}</td>
+                            <td><a class="btn btn-info" href="/admin/rack/edit.do/${rack.id}">ویرایش</a></td>
                             <td>
-                                <form:form method="DELETE" action="/admin/device/delete.do">
-                                    <input type="hidden" name="id" value="${device.id}">
+                                <form:form method="DELETE" action="/admin/rack/delete.do">
+                                    <input type="hidden" name="id" value="${rack.id}">
                                     <input type="submit" class="btn btn-danger" name="submit" value="حذف">
                                 </form:form>
                             </td>

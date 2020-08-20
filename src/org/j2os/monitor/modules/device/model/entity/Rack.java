@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-@Entity
+@Entity(name = "rack")
 @Table(name = "rack")
 public class Rack implements Serializable {
     @Id
@@ -21,7 +21,7 @@ public class Rack implements Serializable {
     private Datacenter datacenterId;
 
     @Column(name = "max_unit", columnDefinition = "number")
-    private long max_unit;
+    private long maxUnit;
 
     @Column(name = "creation_at", updatable = false)
     private LocalDateTime createdAt;
@@ -45,14 +45,18 @@ public class Rack implements Serializable {
         updatedAt = LocalDateTime.now();
     }
 
-    public Rack() {
+    public Rack(String id) {
+        if(id != null){
+            this.id = Long.parseLong(id);
+        }
     }
 
-    public Rack(String name, Datacenter datacenterId, long max_unit) {
+    public Rack(String name, Datacenter datacenterId, long maxUnit) {
         this.name = name;
         this.datacenterId = datacenterId;
-        this.max_unit = max_unit;
+        this.maxUnit = maxUnit;
     }
+
 
     public long getId() {
         return id;
@@ -78,12 +82,12 @@ public class Rack implements Serializable {
         this.datacenterId = datacenterId;
     }
 
-    public long getMax_unit() {
-        return max_unit;
+    public long getMaxUnit() {
+        return maxUnit;
     }
 
-    public void setMax_unit(long max_unit) {
-        this.max_unit = max_unit;
+    public void setMaxUnit(long maxUnit) {
+        this.maxUnit = maxUnit;
     }
 
     public LocalDateTime getCreatedAt() {

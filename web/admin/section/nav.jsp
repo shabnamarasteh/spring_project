@@ -41,12 +41,13 @@
 
                             <li><a><i class="fa fa-money"></i> دستگاه ها <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="/admin/datacenter"> دیتاسنترها </a></li>
+
+                                    <li><a href="/admin/datacenter/index.do"> دیتاسنترها </a></li>
                                     <li><a href="/admin/deviceModel/index.do"> مدل دستگاه </a></li>
                                     <li><a href="/admin/deviceGroup/index.do"> گروه دستگاه </a></li>
                                     <li><a href="/admin/deviceModelProperty/index.do"> ویژگی مدل دستگاه </a></li>
-                                    <li><a href="/admin/rack">رک ها </a></li>
-                                    <li><a href="/admin/device">دستگاه ها </a></li>
+                                    <li><a href="/admin/rack/index.do">رک ها </a></li>
+                                    <li><a href="/admin/device/index.do">دستگاه ها </a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-bar-chart-o"></i> گزارشات <span
@@ -60,6 +61,9 @@
                                 <ul class="nav child_menu">
                                     <li><a href="/admin/alarms">هشدار</a></li>
                                     <li><a href="/admin/config">تنظیمات کلی</a></li>
+
+                                    <li><a href="/admin/state/all.do">استان</a></li>
+                                    <li><a href="/admin/city/all.do">شهر</a></li>
                                 </ul>
                             </li>
 

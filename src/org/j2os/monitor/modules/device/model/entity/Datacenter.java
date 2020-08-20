@@ -5,7 +5,7 @@ import org.j2os.monitor.modules.common.model.entity.City;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity
+@Entity(name = "datacenter")
 @Table(name = "datacenter")
 public class Datacenter {
     @Id
@@ -55,6 +55,11 @@ public class Datacenter {
     public Datacenter() {
     }
 
+    public Datacenter(String id) {
+        if(id != null){
+            this.id = Long.parseLong(id);
+        }
+    }
     public Datacenter(String name, String description, String address, String location, City cityId) {
         this.name = name;
         this.description = description;

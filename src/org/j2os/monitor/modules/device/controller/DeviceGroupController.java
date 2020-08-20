@@ -7,9 +7,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.List;
 
 @Controller
 @RequestMapping("/admin/deviceGroup")
@@ -38,12 +40,13 @@ public class DeviceGroupController {
         return "redirect:/admin/deviceGroup/index.do";
     }
 
-
-    @RequestMapping(value = "/{id}/edit.do", method = RequestMethod.GET)
-    public String editForm(@PathVariable("id") long id, Model model) {
+    @RequestMapping(value = "/delete.do", method = RequestMethod.DELETE)
+    public String delete_dg(@RequestParam("deviceGroupId") long id) {
         DeviceGroup deviceGroup = (DeviceGroup) this.deviceGroupService.findById(id);
-        model.addAttribute("devGroup", deviceGroup);
-        return "/admin/device/deviceGroupEdit";
+        if (deviceGroup != null) {
+            this.deviceGroupService.delete(deviceGroup);
+        }
+        return "redirect:/admin/deviceGroup/index.do";
     }
 
     @RequestMapping(value = "/update.do", method = RequestMethod.PUT)

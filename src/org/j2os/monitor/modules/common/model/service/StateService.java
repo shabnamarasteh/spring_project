@@ -43,6 +43,7 @@ public class StateService implements ServiceInterface<State> {
     @Override
     @Transactional
     public void delete(State state) {
+        //findByCity if exist not delete
         this.stateRepository.delete(state);
     }
 
