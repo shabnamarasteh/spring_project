@@ -4,8 +4,8 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "owner")
+@Entity(name = "ownerDevice")
+@Table(name = "ownerDevice")
 public class OwnerDevice implements Serializable {
     @Id
     @Column(name = "id", columnDefinition = "number")

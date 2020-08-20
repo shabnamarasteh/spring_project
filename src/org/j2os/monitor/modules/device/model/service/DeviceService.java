@@ -13,7 +13,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 @Service
-@Qualifier("deviceService")
 public class DeviceService implements ServiceInterface<Device> {
     private DeviceRepository deviceRepository;
 

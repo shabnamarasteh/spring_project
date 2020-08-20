@@ -5,6 +5,8 @@ import org.j2os.monitor.modules.admin.model.repository.AdminRepository;
 import org.j2os.monitor.modules.utils.Interfaces.service.ServiceInterface;
 import org.j2os.monitor.modules.utils.MyBeanCopy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,6 +14,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 @Service
+@Qualifier("adminService")
 public class AdminService implements ServiceInterface<Admin> {
     private AdminRepository adminRepository;
 
@@ -23,6 +26,7 @@ public class AdminService implements ServiceInterface<Admin> {
     @Override
     @Transactional
     public void add(Admin admin) {
+        System.out.println(admin.getLastName()+"-------------"+admin.getRoleId());
         this.adminRepository.save(admin);
     }
 

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: hedi
@@ -11,7 +12,7 @@
 <head>
 
     <jsp:include page="../section/header.jsp"/>
-    <title>صفحه اصلی</title>
+    <title>دیتاسنتر</title>
 </head>
 <body class="nav-md">
 
@@ -24,16 +25,17 @@
                 <div class="" role="tabpanel" data-example-id="togglable-tabs">
                     <ul id="myTab1" class="nav nav-tabs bar_tabs" role="tablist">
                         <li role="presentation" class="active">
-                            <a href="#tab_content11" id="home-tabb"  role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">ایجاد مدیریت جدید</a>
+                            <a href="#tab_content11" id="home-tabb"  role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">ایجاد دیتاسنتر جدید</a>
                         </li>
                     </ul>
                     <div id="myTabContent2" class="tab-content">
                         <div role="tabpanel" class="tab-pane fade active in" id="tab_content11" aria-labelledby="home-tab">
                             <div class="x_content">
                                 <br/>
-                                <form class="form-horizontal form-label-left input_mask">
+                                <form class="form-horizontal form-label-left input_mask"  method="POST"
+                                      action="/admin/datacenter/save.do" modelAttribute="datacenter">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control" id="datacenter_name" name="datacenter_name" placeholder="نام دیتاسنتر">
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="نام دیتاسنتر">
                                         <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
 
                                     </div>
@@ -42,7 +44,7 @@
                                         <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control has-feedback-left" id="location" name="location" placeholder="لوکیشن">
+                                        <input type="text" class="form-control has-feedback-left" id="location" name="location" placeholder="مختصات">
                                         <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -53,16 +55,20 @@
 
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                         <div class="checkbox">
-                                            <label class="">شهرا
-                                                <select name="city">
-                                                    <option value="1">تهران</option>
+                                            <label class="">شهر </label>
+                                                <select name="cityId" class="form-control">
+                                                    <c:forEach items="${cities}" var="city">
+                                                        <option value="${city.id}">${city.name}</option>
+                                                    </c:forEach>
                                                 </select>
-                                            </label>
+
                                         </div>
-                                        <div class="form-group">
-                                            <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-                                                <button type="submit" class="btn btn-primary">انصراف</button>
-                                                <button type="submit" class="btn btn-success">ارسال</button>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-md-offset-3">
+                                            <div class="form-group">
+                                                <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                                                    <button type="submit" class="btn btn-primary">انصراف</button>
+                                                    <button type="submit" class="btn btn-success">ارسال</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

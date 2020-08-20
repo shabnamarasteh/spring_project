@@ -3,7 +3,7 @@ package org.j2os.monitor.modules.common.model.entity;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity
+@Entity(name = "state")
 @Table(name = "state")
 public class State {
     @Id
@@ -40,8 +40,10 @@ public class State {
     public State() {
     }
 
-    public State(String name) {
-        this.name = name;
+    public State(String id) {
+        if(id != null){
+            this.id = Long.parseLong(id);
+        }
     }
 
     public long getId() {

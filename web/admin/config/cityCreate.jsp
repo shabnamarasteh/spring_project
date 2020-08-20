@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: hedi
@@ -31,18 +32,22 @@
                         <div role="tabpanel" class="tab-pane fade active in" id="tab_content11" aria-labelledby="home-tab">
                             <div class="x_content">
                                 <br/>
-                                <form class="form-horizontal form-label-left input_mask">
+                                <form method="POST" action="/admin/city/save.do" modelAttribute="city" class="form-horizontal form-label-left input_mask">
+
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                         <input type="text" class="form-control has-feedback-left" name="name" id="name" placeholder="نام">
                                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <select name="stateId">
-                                            <option value="1">تهران</option>
+                                        <select name="stateId" class="form-control">
+                                        <c:forEach items="${states}" var="state">
+                                            <option value="${state.id}">${state.name}</option>
+                                        </c:forEach>
+
                                         </select>
                                     </div>
 
-                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 form-group has-feedback">
                                         <div class="form-group">
                                             <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
                                                 <button type="submit" class="btn btn-primary">انصراف</button>

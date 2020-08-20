@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Table(name = "device_model")
-@Entity
+@Entity(name = "device_model")
 public class DeviceModel {
     @Id
     @Column(name = "id", columnDefinition = "number")
@@ -48,6 +48,12 @@ public class DeviceModel {
     @PreUpdate
     protected void onUpdatedAt() {
         updatedAt = LocalDateTime.now();
+    }
+
+    public DeviceModel(String id) {
+        if(id != null){
+            this.id = Long.parseLong(id);
+        }
     }
 
     public DeviceModel() {

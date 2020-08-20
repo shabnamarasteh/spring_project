@@ -5,6 +5,7 @@ import org.j2os.monitor.modules.device.model.repository.DeviceModelPropertyRepos
 import org.j2os.monitor.modules.utils.Interfaces.service.ServiceInterface;
 import org.j2os.monitor.modules.utils.MyBeanCopy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,6 +13,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 @Service
+@Qualifier("deviceModelPropertyService")
 public class DeviceModelPropertyService implements ServiceInterface<DeviceModelProperty> {
     private DeviceModelPropertyRepository deviceModelPropertyRepository;
 
@@ -59,6 +61,7 @@ public class DeviceModelPropertyService implements ServiceInterface<DeviceModelP
 
     @Override
     public DeviceModelProperty findById(long id) {
+        System.out.println("-----------64------------"+id);
         return this.deviceModelPropertyRepository.findOne(DeviceModelProperty.class, id);
     }
 }

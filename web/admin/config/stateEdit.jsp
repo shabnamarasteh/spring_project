@@ -32,9 +32,10 @@
                         <div role="tabpanel" class="tab-pane fade active in" id="tab_content11" aria-labelledby="home-tab">
                             <div class="x_content">
                                 <br/>
-                                <form method="POST" action="/admin/state/save.do" modelAttribute="state" class="form-horizontal form-label-left input_mask">
+                                <form method="POST" action="/admin/state/${id}/edit.do"  modelAttribute="state" class="form-horizontal form-label-left input_mask">
+                                    <input type="hidden" value="PUT" name="_method">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control has-feedback-left" name="name" id="name" placeholder="نام" >
+                                        <input type="text" class="form-control has-feedback-left" name="name" id="name" placeholder="نام" value="${state.name}">
                                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 form-group has-feedback">
