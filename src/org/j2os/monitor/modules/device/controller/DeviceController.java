@@ -38,7 +38,7 @@ public class DeviceController {
         return "admin/device/deviceCreate";
     }
 
-    @RequestMapping(value = "/device/all.do", method = RequestMethod.GET)
+    @RequestMapping(value = {"/device/all.do", "/device/index.do"}, method = RequestMethod.GET)
     public String index(Model model) {
         model.addAttribute("devices", this.deviceService.findAll());
         return "admin/device/deviceList";
