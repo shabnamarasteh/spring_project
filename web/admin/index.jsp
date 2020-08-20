@@ -156,7 +156,7 @@
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div>طراحی و توسعه سیستم مانیتورینگ سرور ها
             </div>
         </div>
 
@@ -182,6 +182,31 @@
                                 <div class="col-md-12 hidden-small">
                                     <p class="excerpt">
                                         مقدمه :در این پروژه با استفاده از فریموک  spring یک سیستم مانیتورینگ منابع سرور ها ط راحی و توسعه داده شده  است که شبیه سازی شده از سیستم مانیتورینگ کد باز  cactiمی باشد .در سیستم ابتدا دیتاسنتر تع ریف شده و س پس در دیتاسنتر ها رک تعریف م ی شوند. در هر  رک می توان سرور  های مختلفی از انوا ع  مختلف قرار داد که این مدل ها نیز در سیستم قابل تعریف می باشند.برای هر مدل  ویژگی های اندازه گیری با آس تانه آن تعریف میشوند که برای هر سرور  در بازه ها ی زمانی مشخص  (به طور مثال هر  5دقیق  )هاین  ویژگی ها  بررسی شده (با استفاده از پروتکل های شبکه ماننده  smtp و ...) و در  صورتی که مقدار اندازهگیری شده از آستانه تعریف شد ه  در سیستم بیشتر باشد برای ادمین های سیستم آلارم  ایجاد می گردد
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>شمای دیتابیس</h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <div class="dashboard-widget-content">
+                                <div class="col-md-12 hidden-small">
+                                    <p class="excerpt">
+                                        <img src="/assets/db.jpg" width="100%">
                                     </p>
                                 </div>
                             </div>
