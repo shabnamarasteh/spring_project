@@ -74,6 +74,8 @@
             </div>
         </div>
     </div>
+    <jsp:include page="../section/singleFooter.jsp"/>
+
 </div>
 
 <jsp:include page="../section/footer.jsp"/>
