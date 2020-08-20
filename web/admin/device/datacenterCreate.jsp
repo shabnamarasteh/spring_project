@@ -48,21 +48,34 @@
                                         <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <textarea type="text" class="form-control" id="description" name="description" placeholder="توضیحات">
-                                        </textarea>
+                                        <select name="cityId" class="form-control">
+                                            <c:forEach items="${cities}" var="city">
+                                                <option value="${city.id}">${city.name}</option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+
+<%--                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">--%>
+<%--                                        <div class="checkbox">--%>
+<%--                                            <label class="">شهر </label>--%>
+<%--                                            <select name="cityId" class="form-control">--%>
+<%--                                                <c:forEach items="${cities}" var="city">--%>
+<%--                                                    <option value="${city.id}">${city.name}</option>--%>
+<%--                                                </c:forEach>--%>
+<%--                                            </select>--%>
+
+<%--                                        </div>--%>
+<%--                                    </div>--%>
+
+                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                        <textarea type="text" class="form-control" id="description" name="description" placeholder="توضیحات"></textarea>
                                         <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                                     </div>
 
-                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <div class="checkbox">
-                                            <label class="">شهر </label>
-                                                <select name="cityId" class="form-control">
-                                                    <c:forEach items="${cities}" var="city">
-                                                        <option value="${city.id}">${city.name}</option>
-                                                    </c:forEach>
-                                                </select>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback"></div>
 
-                                        </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+
                                         <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-md-offset-3">
                                             <div class="form-group">
                                                 <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
