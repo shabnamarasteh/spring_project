@@ -6,10 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
+import java.lang.reflect.InvocationTargetException;
 
 @Controller
 @RequestMapping("/owner")
@@ -35,6 +34,26 @@ public class OwnerDeviceController {
     @RequestMapping(value = "/save.do", method = RequestMethod.POST)
     public String save(@ModelAttribute("owner") OwnerDevice owner) {
         ownerDeviceService.add(owner);
+        return "redirect:/owner/index.do";
+    }
+
+    @RequestMapping(value = "/{id}/edit.do",method = RequestMethod.GET)
+    public String editForm(@PathVariable("id") long id, Model model) {
+        OwnerDevice admin = (OwnerDevice) this.ownerDeviceService.findById(id);
+        model.addAttribute("owner",admin);
+        return "admin/owner/ownerEdit";
+    }
+
+    @RequestMapping(value = "/update.do", method = RequestMethod.PUT)
+    public String update(@ModelAttribute("owner") OwnerDevice owner) {
+        try {
+            ownerDeviceService.update(owner);
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+
         return "redirect:/owner/index.do";
     }
 
